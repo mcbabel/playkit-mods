@@ -1,16 +1,22 @@
 id = "private-match"
 name = "Private Match"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["MCbabel"]
-summary = "Lobbies only your friends can join: pick a side, create a match and share the four-digit code."
+summary = "Lobbies only your friends can join: pick a side, create a match, then invite friends or share the four-digit code."
 description = """
-Main menu > PRIVATE MATCH > choose Monster or Specialist > CREATE MATCH, then share the code.
-Friends join with the key button (LOBBY CODE). The host starts the round with two or more players.
-Players who join see the real lobby code. Everyone in the lobby needs this mod."""
+Main menu > PRIVATE MATCH > choose Monster or Specialist > CREATE MATCH.
+Invite friends with the + button above the menu icons. It opens your Steam friends list.
+When a friend accepts, their game opens Private Match and joins your lobby, even if it was closed.
+Friends can also join with the key button (LOBBY CODE). The host starts the round with two or more players.
+Everyone in the lobby needs this mod."""
 category = "multiplayer"
 network = "lobby"
 game_builds = ["12576441"]
 color = "#3A6BFF"
+
+[[changelog]]
+version = "1.1.0"
+changes = ["Invite Steam friends with the + button in the lobby", "Accepting an invite opens Private Match and joins the lobby, also when the game was closed"]
 
 [[changelog]]
 version = "1.0.0"
