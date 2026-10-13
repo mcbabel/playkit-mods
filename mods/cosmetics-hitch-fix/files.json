@@ -1,0 +1,50 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Base/PlaytimeFunctionLibrary.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Base/PlaytimeFunctionLibrary.uasset.bsdiff",
+    "sha256": "1e7018dd5b79e784f27b25cb3f8557878b9a00af4211d942f62a8e42017186db",
+    "payload_sha256": "cee1e9003c74959351325cd50a73752533d011338655c83ab5511c3ff00833c4",
+    "size": 358,
+    "base_sha256": "bd1e322bd716ecd8696de47f0a91654db600f0834e58c7f28720607a1db364fa"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Base/PlaytimeFunctionLibrary.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Base/PlaytimeFunctionLibrary.uexp.bsdiff",
+    "sha256": "852ccb29199835a562a34e26a454e2e877af945e825ac8563e6da22489f8ec80",
+    "payload_sha256": "9cd298797b57a9c025c4099c98fd5bc6363c5157106547c842a37c624bcc232a",
+    "size": 300,
+    "base_sha256": "c17fb1c3760de042042a1829bdaa932607371ec1a6a0c09479e43599d16afcc0"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uasset.bsdiff",
+    "sha256": "a05e8b8014618cafb85dfeef127856d0f271541ddb1a5d10c4d3a2c34692bbad",
+    "payload_sha256": "094ce58e7365223bc669f26cb82ad75b86d19446bf0db2b03591d76dee7cbee0",
+    "size": 190,
+    "base_sha256": "89d9a961325a9b3347bf7624314d1f7af488878c5456b6b6c5842906e54b4658"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uexp.bsdiff",
+    "sha256": "03369b61ca4f0235a550a937a8b7d5b4c20c4f84ebe3fa61f02eb0999fd55234",
+    "payload_sha256": "0b3f01b546949d79ba45d982182243a6cc8ebfffea5ad2592653ddfee08eccfa",
+    "size": 248,
+    "base_sha256": "e91dbdb6421073c2db5ec27a2ea6403022c40336059bbde6254619829ea71de2"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_StoreItem.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_StoreItem.uasset.bsdiff",
+    "sha256": "770c60fb9ab01ac456966d2a0b33c8add7afa39fd1dc9696b90f26dfac2ddd52",
+    "payload_sha256": "16d654284ff9c8cd85a971a9e657a8452bd62b5d274a75db9c13ad23ec2adb6f",
+    "size": 185,
+    "base_sha256": "6918e63dbf96f850d3e8d75de1220fb7ce8b5b49d801571b1f73c0d0a3021e38"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_StoreItem.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_StoreItem.uexp.bsdiff",
+    "sha256": "2196433b6f02dcea83d2ce284ca325ed3ff4dd8a2de5dc8113c73710fbd9a147",
+    "payload_sha256": "1e177cba8597f114b6a8c9c79234c93a71981238609d3c377cb97564b954b6f7",
+    "size": 355,
+    "base_sha256": "76e06bfe7382ef3a6075994ff034c04be3ee19655a032ce0a8a0c907e430d9c1"
+  }
+]

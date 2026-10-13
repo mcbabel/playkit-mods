@@ -1,0 +1,27 @@
+name: Publish index
+
+on:
+  push:
+    branches: [main]
+    paths: ["mods/**", "registry.toml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo install --locked --git https://github.com/MCbabel/playkit playkit-pack
+      - run: playkit-pack index . --base-url "https://raw.githubusercontent.com/${{ github.repository }}/main"
+      - name: Commit index.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git diff --cached --quiet || git commit -m "Update index.json"
+          git push

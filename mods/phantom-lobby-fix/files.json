@@ -1,0 +1,18 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset.bsdiff",
+    "sha256": "bbb13fb3047eaeee600ef268d8412d9768060bc36f6e3aeb78d6bbb79c691fb8",
+    "payload_sha256": "60dbaf27591deae40307aedda7ac6614dfb3ca0137b218ab11ddfd3a94e45075",
+    "size": 345,
+    "base_sha256": "40fcd596b19f52169019c14f41308193eb3fa2264171c9aa92b54639e7ee3af4"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp.bsdiff",
+    "sha256": "07a3c2c37ff1229fca7089522ae61f91c9d323d436c928da02f5710aaca766b4",
+    "payload_sha256": "f4fd8771d1ac6630850bf6b1090a458256392dda09e83d6acac331df0c7e9783",
+    "size": 393,
+    "base_sha256": "0ef8cce36c86fda1c637ef6b4c4f178f559097d4e5ffcc6a52103d63f2a677ac"
+  }
+]

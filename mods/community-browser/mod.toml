@@ -1,0 +1,16 @@
+id = "community-browser"
+name = "Community Browser"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "A COMMUNITY button in the main menu that lists Project Playtime 2.0.3 lobbies by category."
+description = """
+Opens the old server browser and finds 2.0.3 games, including ones already running.
+Join opens the host's Steam profile so you can connect from there."""
+category = "multiplayer"
+network = "safe"
+game_builds = ["12576441"]
+color = "#2F9E6B"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

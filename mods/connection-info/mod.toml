@@ -1,0 +1,16 @@
+id = "connection-info"
+name = "Connection Info"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Ping to the host, FPS and host name at the top of the screen while you are not hosting."
+description = """
+Turn it on in Settings > Gameplay > CONNECTION INFO.
+During a round it shows your ping to the host (GOOD / OK / BAD), your frame rate and who is hosting."""
+category = "interface"
+network = "safe"
+game_builds = ["12576441"]
+color = "#28B98A"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

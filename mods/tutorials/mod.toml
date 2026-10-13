@@ -1,0 +1,17 @@
+id = "tutorials"
+name = "Tutorials"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Play the Specialist tutorial again: a Tutorial button in the matchmaking sidebar, with working train, revive and Huggy."
+description = """
+Adds a Tutorial button next to the character selection. Specialists get the Specialist tutorial.
+Fixes what 2.0.5 broke: camera and grabpack at the start, narrator and subtitles, the train,
+Huggy chasing you and carrying you to the Wuggy hole, and being revived from it."""
+category = "offline"
+network = "offline"
+game_builds = ["12576441"]
+color = "#C25BD6"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

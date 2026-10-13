@@ -1,0 +1,15 @@
+id = "map-vote-fix"
+name = "Map Vote Fix"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "The map vote roulette no longer spins forever."
+description = """
+When the same map won again the roulette restarted itself endlessly. It now stops on the chosen map."""
+category = "fixes"
+network = "safe"
+game_builds = ["12576441"]
+color = "#5B8DEF"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

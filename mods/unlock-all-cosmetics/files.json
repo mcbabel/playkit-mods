@@ -1,0 +1,18 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Character/Cosmetics/Items.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Character/Cosmetics/Items.uexp.bsdiff",
+    "sha256": "611b40a7243223ae7a495d3a3754d016e59c1879de2f5885ad9c3a08c7e74582",
+    "payload_sha256": "0527b18448f213b0e99254df1729248cecff0dbd93bb47bf165688bb4aac3281",
+    "size": 565,
+    "base_sha256": "5cddb75478a6633d6b3e5a16a25b3dcaeb85a3a81a0870e97c83a201d83687c1"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Items/Items.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Items/Items.uexp.bsdiff",
+    "sha256": "0734ae65f39c49110ab6dc5b12a266c6b5f18fb7b509fba6ff6fc25370da06e2",
+    "payload_sha256": "d63ad4123918178815e9dfce6484e23015eb04b15f554fab89d30eca7d807d51",
+    "size": 868,
+    "base_sha256": "66e4d66ad7e3bb10faa81d400462854cc189cece3a6b8da0376da959192dfdc4"
+  }
+]

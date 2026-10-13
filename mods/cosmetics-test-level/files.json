@@ -1,0 +1,34 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uasset.bsdiff",
+    "sha256": "38a1de4192ed17d93c0c9dbbc9225ac68a3b935b9cc11b66a348de31e2661861",
+    "payload_sha256": "799cad5734673c0a4317df91f6ab467ba226ff382014ac4812939accea3638ff",
+    "size": 266,
+    "base_sha256": "24518778042c769445a21f60914ea8ffd91ba7a0e538010e1dd27419a10b5d34"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uexp.bsdiff",
+    "sha256": "8f6d83ed73368d7eea6fbda5123da903a98f7317f45ebe33c32cda9a0f853ac6",
+    "payload_sha256": "f74ec7edd7430ce2018802812778f12362118f73ba9268e38481be10b64afde8",
+    "size": 301,
+    "base_sha256": "abe54080a1d03de18c54c4374f1237f752c27b7df0f9ada6ff1273e513a9b253"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset.bsdiff",
+    "sha256": "591c297e93e6e82e3289a88b0d583d3f0ee33f0362e3ef42081ff6e1eed1a578",
+    "payload_sha256": "069b73b98d76c46352d8890fab3be2fc58383d70ede2f9bad8e62c1381c2a2e5",
+    "size": 355,
+    "base_sha256": "df6458bed8845bab1d57333e9f89d1bcbd084267219ce3d28e57d8eb21441d16"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp.bsdiff",
+    "sha256": "5564bfa1c9accab7bcea100f2f79ced818dd20495434ef70753902155a79c5d1",
+    "payload_sha256": "ef07ef0ea26040305469f0b1df0cf8f7ac26fbae57da2266c9631b8375459815",
+    "size": 268,
+    "base_sha256": "573b5c47451d338f44de30c996d6bfe79722443c83ae8466607d54ae0de14037"
+  }
+]

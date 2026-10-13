@@ -1,0 +1,16 @@
+id = "cosmetics-hitch-fix"
+name = "Cosmetics Hitch Fix"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Opening outfits and the store no longer freezes the menu for seconds."
+description = """
+The outfit list used to load every cosmetic item with all its meshes at once, and the store rebuilt tooltips for every card.
+Now only what is needed is loaded, so the menus stay smooth."""
+category = "fixes"
+network = "safe"
+game_builds = ["12576441"]
+color = "#E0507A"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

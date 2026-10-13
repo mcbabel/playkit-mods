@@ -1,0 +1,18 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MapVote.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MapVote.uasset.bsdiff",
+    "sha256": "296395764e327af41985ed63938c033f67427846c8e1200a7b955b68e5b453cf",
+    "payload_sha256": "e604e1b01ef075e2b83431b1b30162befabdc6469966481a01d86628443c97f7",
+    "size": 274,
+    "base_sha256": "540c2c4d2deb3cf4e75f28137e3843389effd1dd31fd78a789b0288461ca87b6"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MapVote.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MapVote.uexp.bsdiff",
+    "sha256": "a4257de96fdaf7761c9a8d6e467dea1f3656a97127b7fd6330e19ad52a945394",
+    "payload_sha256": "53a815b0190cef499869011a578d9b4f8bd3a09d4820c3742ded294efdac1fa3",
+    "size": 332,
+    "base_sha256": "bb68cc27b8ff18d6d2ffa33d9c82dcdc8c6b86720cff355ffbbe574d1c6f0d35"
+  }
+]

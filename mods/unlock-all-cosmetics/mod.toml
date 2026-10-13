@@ -1,0 +1,16 @@
+id = "unlock-all-cosmetics"
+name = "Unlock All Cosmetics"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Every outfit, skin and emote is unlocked."
+description = """
+Project Playtime has ended operations and cosmetics can no longer be bought.
+This mod marks every cosmetic item as unlocked, so all outfits, skins and emotes can be used."""
+category = "other"
+network = "safe"
+game_builds = ["12576441"]
+color = "#FF8A3D"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

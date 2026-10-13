@@ -1,0 +1,66 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset.bsdiff",
+    "sha256": "9dd1214004980dc68e9aef228a8fc19bf0ac6f4438b5e96c681c206af60f79ad",
+    "payload_sha256": "2cee78f92b41de74c876b227e337558e22028bc6dcb7f35ebf83432bba01ade3",
+    "size": 302,
+    "base_sha256": "40fcd596b19f52169019c14f41308193eb3fa2264171c9aa92b54639e7ee3af4"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp.bsdiff",
+    "sha256": "57a727903d0ea940f480752fc9e629bdec3bbd335ed8df4335827463a663e7b3",
+    "payload_sha256": "ca65e363836cd00d32da71602b8b3044f63346c1af246e74f1b5dc482932838e",
+    "size": 182,
+    "base_sha256": "0ef8cce36c86fda1c637ef6b4c4f178f559097d4e5ffcc6a52103d63f2a677ac"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/HUDComponents/UI_SurvivorHUD.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/HUDComponents/UI_SurvivorHUD.uasset.bsdiff",
+    "sha256": "1cf26c9a81a8a2953f7ed35bd30f8f5f820a3a2cb5b5972ec16db9437e3c1aca",
+    "payload_sha256": "9994a6653288d8a8a40170a8df187d91bb5c268f552fdcd9e8de820661449109",
+    "size": 1358,
+    "base_sha256": "e9bbb65789fcba6a22001d89111831b9acc4d10d6980a7b5d113ef0383716787"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/HUDComponents/UI_SurvivorHUD.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/HUDComponents/UI_SurvivorHUD.uexp.bsdiff",
+    "sha256": "f111c1b80350caacc3ca9aec03fb164e6b4e07ef113fe3d3bd8b65d8b826b8d9",
+    "payload_sha256": "f6c1b5f9fd9fccc89e3f4dc14edac0028d889fae90831fcba496525bc408f253",
+    "size": 984,
+    "base_sha256": "8b5bc1dac2a2d6dc7bcf376273de13c9c878977e6a9a87893525562666328bfd"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uasset.bsdiff",
+    "sha256": "deb45e5a7a0c10ef2f95de2e19eeb33e585411c35a138b67b93298b48985be05",
+    "payload_sha256": "923cf8870f02042b0b75c578271a6f58e78937b3c2880db3a98427891c44723b",
+    "size": 1498,
+    "base_sha256": "06ab7ccee041b385591b871683d962b9ebd6b1d1cca6479286754d4492535b24"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uexp.bsdiff",
+    "sha256": "bdf641f6268a236081a844a951fa911cb550820ddc13ae5d23ec8f57e15eb2c3",
+    "payload_sha256": "7d48155e624311a86ea8ab3fd7796b088a5be9b0814f7d05aa4015aab179e3f2",
+    "size": 826,
+    "base_sha256": "8947bf05d8dbb839f0d8ab2aa354e61d172d4ae570c9f769c7edebdd92a40383"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/Settings/UI_Settings_Menu.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/Settings/UI_Settings_Menu.uasset.bsdiff",
+    "sha256": "4fe8076d0009de7a4fd91ee9caef11d97d8e7b32621710dfa88c0ad4555f81bf",
+    "payload_sha256": "4551ac0875412b01bdd1d721062ebc800bee1fd32950af4c3b1d0f7a35285e77",
+    "size": 696,
+    "base_sha256": "ed2e9ca491267f50f3eec765bec6fdc82bcaf9ad12ca6c076e3ab97a7135cf4a"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Interface/Settings/UI_Settings_Menu.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Interface/Settings/UI_Settings_Menu.uexp.bsdiff",
+    "sha256": "0b45eb6325020b9f52d3efa856847ea09faf9e0e49974415661f449a61ec3bdf",
+    "payload_sha256": "35c65e5b14db96de29616d61a6b4019f431c40ca593916fdea3d42469d8a7052",
+    "size": 626,
+    "base_sha256": "2387929bb9ab00f1c1eda9ffe417124533e86122e2d7e51cddf65921e4bff1ec"
+  }
+]

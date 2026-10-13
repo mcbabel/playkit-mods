@@ -1,0 +1,18 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uasset.bsdiff",
+    "sha256": "352338c6d5b255cb9c323485db1ee54ae504642dcf6027d4937590e0928efbef",
+    "payload_sha256": "c00fc65bc1d7666df28d7ea0001562e191918ca5da35ad18007e06879f673ae1",
+    "size": 702,
+    "base_sha256": "a2491df6996000fb86084d7b813d03f512da65609fe0731162f8106e3ad6c0fe"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uexp.bsdiff",
+    "sha256": "12d86719d8fe4da237dbd6a213a7159bddf8d76b22190c1cbdb465adae6cc695",
+    "payload_sha256": "5f7c71b213fcd8b2955ef69439892acdab436b7358e63890c80266ec43ddf69f",
+    "size": 826,
+    "base_sha256": "85f63b6ee7d12413d8a0cb398f92073a402cb22f1025253157bfdcecbfc33e55"
+  }
+]

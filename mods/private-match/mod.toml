@@ -1,0 +1,17 @@
+id = "private-match"
+name = "Private Match"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Lobbies only your friends can join: pick a side, create a match and share the four-digit code."
+description = """
+Main menu > PRIVATE MATCH > choose Monster or Specialist > CREATE MATCH, then share the code.
+Friends join with the key button (LOBBY CODE). The host starts the round with two or more players.
+Players who join see the real lobby code. Everyone in the lobby needs this mod."""
+category = "multiplayer"
+network = "lobby"
+game_builds = ["12576441"]
+color = "#3A6BFF"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

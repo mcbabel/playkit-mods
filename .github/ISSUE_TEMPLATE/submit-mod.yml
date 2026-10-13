@@ -1,0 +1,47 @@
+name: Submit a mod
+description: Send a mod packed with Playkit. A maintainer adds it for you.
+title: "Add mod: "
+labels: [submission]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pack your mod with **Submit a mod** in Playkit, then attach the zip below.
+  - type: input
+    id: id
+    attributes:
+      label: Mod id
+      placeholder: my-mod
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What does it change?
+      description: Which parts of the game, and does it change anything players without the mod would notice?
+    validations:
+      required: true
+  - type: dropdown
+    id: network
+    attributes:
+      label: Multiplayer
+      options:
+        - Safe for public matches
+        - Everyone in a private lobby needs it
+        - Offline only
+    validations:
+      required: true
+  - type: textarea
+    id: zip
+    attributes:
+      label: Zip
+      description: Drag the zip from Playkit into this field.
+    validations:
+      required: true
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Rules
+      options:
+        - label: I made this mod or have permission to share it, and it contains no cheats for public matches.
+          required: true

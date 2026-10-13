@@ -1,0 +1,16 @@
+id = "double-click-guard"
+name = "Double-Click Guard"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Fast double clicks in the menus no longer break creating, joining or starting a lobby."
+description = """
+Clicking a menu button twice while Steam is still busy used to start two lobbies or leave one half open.
+Clicks that arrive while the game is still working on the last one are ignored now."""
+category = "fixes"
+network = "safe"
+game_builds = ["12576441"]
+color = "#2BA7C9"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

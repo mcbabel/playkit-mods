@@ -1,0 +1,16 @@
+id = "cosmetics-test-level"
+name = "Cosmetics Testing Level"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Brings back the developer button that opens the cosmetics testing level, and makes the level playable."
+description = """
+Adds the hidden Cosmetics Testing Level button to the main menu.
+In the level you can walk around with your current outfit and look at it from every side."""
+category = "offline"
+network = "offline"
+game_builds = ["12576441"]
+color = "#A66BFF"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

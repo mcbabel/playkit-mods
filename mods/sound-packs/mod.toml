@@ -1,0 +1,16 @@
+id = "sound-packs"
+name = "Sound Packs"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Sound packs you own actually play: menu music, lobby, ambience and puzzle sounds."
+description = """
+Pick a sound pack in the lobby and it is used for the main menu music, the round ambience and the puzzle sounds.
+Packs can be previewed and switched off again, and the store shows which pack is active."""
+category = "interface"
+network = "safe"
+game_builds = ["12576441"]
+color = "#E8B427"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]

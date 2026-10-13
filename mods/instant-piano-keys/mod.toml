@@ -1,0 +1,17 @@
+id = "instant-piano-keys"
+name = "Instant Piano Keys"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "Your key lights up and sounds the moment you press it. The host still decides right or wrong."
+description = """
+Playing as a client normally means waiting for the host before a piano key reacts.
+With this mod your own presses light up and play their note right away.
+Whether the press was correct still comes from the host, so nothing is guessed."""
+category = "multiplayer"
+network = "safe"
+game_builds = ["12576441"]
+color = "#F2734B"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["Only the key press is instant, the right/wrong answer always comes from the host"]

@@ -1,0 +1,15 @@
+name: Validate
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo install --locked --git https://github.com/MCbabel/playkit playkit-pack
+      - run: playkit-pack index . --base-url "https://raw.githubusercontent.com/${{ github.repository }}/main" --out /tmp/index.json
+      - run: git diff --name-only origin/${{ github.base_ref }}... | grep -qx index.json && { echo "index.json is generated, leave it out of the pull request"; exit 1; } || true

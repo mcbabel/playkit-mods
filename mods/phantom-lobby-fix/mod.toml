@@ -1,0 +1,16 @@
+id = "phantom-lobby-fix"
+name = "Phantom Lobby Fix"
+version = "1.0.0"
+authors = ["MCbabel"]
+summary = "After a kick or a lost connection you really leave the old lobby instead of staying stuck in it."
+description = """
+Without this fix the game could keep you in a lobby that no longer exists after you were kicked or lost the connection,
+so the next match or private lobby behaved strangely. Now the old lobby is left and reset cleanly."""
+category = "fixes"
+network = "safe"
+game_builds = ["12576441"]
+color = "#7A5CFF"
+
+[[changelog]]
+version = "1.0.0"
+changes = ["First release"]
