@@ -709,6 +709,76 @@
       ]
     },
     {
+      "id": "hud-diagnostics",
+      "name": "HUD Diagnostics",
+      "version": "1.0.0",
+      "authors": [
+        "MCbabel"
+      ],
+      "summary": "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round.",
+      "description": "A diagnostic for a bug where the monster has no HUD and the specialist has no grabpack after the round starts.\nIt writes short entries to your Steam Rich Presence (key hd): when the intro and the spawn camera start and end, and whether the HUD is shown at that moment.\nIt does not change how the game plays and you can still play public matches with people without mods. Remove it again after the test.",
+      "category": "other",
+      "network": "safe",
+      "game_builds": [
+        "12576441"
+      ],
+      "color": "#7A7F87",
+      "homepage": null,
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "changes": [
+            "First release"
+          ]
+        }
+      ],
+      "requires": [],
+      "files": [
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uasset.bsdiff",
+          "sha256": "9e5931d9c5a72a3c2dd3f4cda46aba7b22ab736d90c71e401c606e94191a942f",
+          "size": 1068,
+          "base_sha256": "3005594eba5c7a8c8c146235a33545be8d2b9113c69687a533cf2d26e985b27f"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uexp.bsdiff",
+          "sha256": "bcb1688b7f90b0954fa2f9e0d1992393b865ae804898acc3597b3d30904e0291",
+          "size": 908,
+          "base_sha256": "26b2068d383e119d5704bdd2ae5f42fc529120973c1485e0163695a3923bb445"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uasset.bsdiff",
+          "sha256": "bd0c2dba12ebf9120f7f1b9f7b995d65bc0ce3e7cc39d5cfe428b488b80d75d2",
+          "size": 920,
+          "base_sha256": "25ea6df53a94a7ab6119a7dce2db684e47df8823f25e1af84b5243e9db1d4dd9"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uexp.bsdiff",
+          "sha256": "5a723cc279cf6ae9489b28e7607abdfc7ba08f10cd3fef28d877f2f223def37d",
+          "size": 841,
+          "base_sha256": "ef89a7a1d66e052040422e74e91ca91de8288f1dde94b978db3f85954c7289d3"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset.bsdiff",
+          "sha256": "2cad96e8110630fbbcb454de1acf50ba6d0cbe2f53074eb9beee3b24a1213eef",
+          "size": 884,
+          "base_sha256": "f8f356095e11ca0963b30463f567d1bfb03c7b7b73901f76957f409d5cc8eb22"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp.bsdiff",
+          "sha256": "b390d14c147813bb4cd562d45161b37ea6d288c8b07620f40e088e9088322569",
+          "size": 663,
+          "base_sha256": "4f3d114bf42c1ed3a044ae3b5db2d65665c45d6a7df1e755a411a097ce306854"
+        }
+      ]
+    },
+    {
       "id": "instant-piano-keys",
       "name": "Instant Piano Keys",
       "version": "1.0.1",
