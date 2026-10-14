@@ -1,0 +1,26 @@
+// user-02
+// Bug: entering a locker while crouching keeps the crouch: the view inside the locker is low, and after leaving it the camera stays at crouch height although Ctrl is no longer held (releasing Ctrl inside the locker cannot stand up because there is no room).
+// Fix: on the owning player's machine: when the enter animation starts, stand up and clear CrouchPressed, because releasing Ctrl inside the locker is never seen (input is disabled there) and the game kept thinking Ctrl was held; when leaving, stand up unless Ctrl was pressed again, right away and 1.2 s later when the player is outside. The camera height only follows the crouch when AdjustCam runs, which the game does on Ctrl press and release, so every stand up here also calls AdjustCam. Crouching is driven by the owning client, so this needs no new RPC.
+
+function PM_LockerStandUp() {
+    if !IsLocallyControlled() goto done;
+    if !Not_PreBool(CrouchPressed) goto done;
+    UnCrouch(false);
+    AdjustCam();
+done:
+}
+
+after `Anim Set Entering Locker` {
+    if !IsLocallyControlled() goto done;
+    CrouchPressed = false;
+    UnCrouch(false);
+    AdjustCam();
+done:
+}
+
+after `Anim Set Exiting Locker` {
+    if !IsLocallyControlled() goto done;
+    PM_LockerStandUp();
+    KismetSystemLibrary::K2_SetTimer(self, "PM_LockerStandUp", 1.2, false, 0.0, 0.0);
+done:
+}

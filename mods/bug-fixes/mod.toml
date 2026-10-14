@@ -1,19 +1,23 @@
 id = "bug-fixes"
 name = "Bug Fixes"
-version = "1.0.1"
+version = "1.0.2"
 authors = ["MCbabel"]
-summary = "Fixes 35 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods."
+summary = "Fixes 36 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods."
 description = """
 Fixes for bugs found by reading the game's own Blueprint code. Each fix only changes what you see and do on your own PC.
 Menus: hidden Clear button on the monster sabotage page (the game cannot save an empty sabotage), new items show up in Customize without a restart, preset names are compared exactly, the shop no longer keeps a stale page, failed Toy Box purchases clear the loading overlay, a Playcoin purchase is completed once, the intro cannot hang, no error toast every minute from a hidden old menu.
 Lobby and matches: joining a lobby whose start countdown already runs no longer shows a fresh 30 seconds, notices like Host Left Lobby are visible again after a map change, the loading screen shows the right text, one results screen with one countdown, the monster player list keeps its monster style, the sabotage icon no longer sticks on ?, B no longer changes your queue preference during a match.
-Players: pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.
+Players: crouching into a locker no longer leaves the camera at crouch height inside and after leaving, pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.
 Puzzles: the Reflex ticking stops on a hit, hand panel bars no longer flash empty when you let go, train call panels get their outline, the claw shows the right hand, Genius perk mistakes are counted correctly.
 When you host (the monster in public matches) a few more fixes apply for the whole round."""
 category = "fixes"
 network = "safe"
 game_builds = ["12576441"]
 color = "#4F9D69"
+
+[[changelog]]
+version = "1.0.2"
+changes = ["Crouching into a locker no longer leaves the camera at crouch height, inside the locker and after leaving it"]
 
 [[changelog]]
 version = "1.0.1"

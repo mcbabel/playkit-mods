@@ -386,17 +386,17 @@
   {
     "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uasset",
     "payload": "files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uasset.bsdiff",
-    "sha256": "9ed3b917a868d694ad9667fdd64706fa7641a0e7db4bb363efd914cdb527e9ef",
-    "payload_sha256": "b9f587d3ff541739a60e677e92f1de43469d2dac6c80b190046bf0c247c4f478",
-    "size": 771,
+    "sha256": "a81e8a3ee6307b4a486a73da60175c2700e92a59e65d17eb8bb6bf16d30402ab",
+    "payload_sha256": "25b62536e5dde747dacfcc70c16d1d14d0233277d43a3cbe9789bd264a733849",
+    "size": 915,
     "base_sha256": "80af0acb967c351d48c85888236fe694d6252c036397082289f1f549349b722b"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uexp",
     "payload": "files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uexp.bsdiff",
-    "sha256": "423b5f2566da109e6f1fab4a62aa3fb396657344246083b50fc61c370add897f",
-    "payload_sha256": "e83ab207b4c0d53187ef61a2294017bb5ee4ff657d7bc4cc957a5721f0a18430",
-    "size": 1584,
+    "sha256": "69ccea1c7f334fac472d004d1217ced1d5f9f77dc4b879f1ac8b5fad91eba00d",
+    "payload_sha256": "ab560ffdceb1644d52580500079a9aab0ecd8194150bb2475f70b64f63c552ee",
+    "size": 1811,
     "base_sha256": "31630f41c7f392dc431341e4139ed52677f843a435d88df7c5ee562a49f6e863"
   },
   {
