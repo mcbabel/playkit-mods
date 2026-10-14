@@ -1,6 +1,6 @@
 id = "instant-piano-keys"
 name = "Instant Piano Keys"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["MCbabel"]
 summary = "Your key lights up and sounds the moment you press it. The host still decides right or wrong."
 description = """
@@ -11,6 +11,10 @@ category = "multiplayer"
 network = "safe"
 game_builds = ["12576441"]
 color = "#F2734B"
+
+[[changelog]]
+version = "1.0.1"
+changes = ["Removed the diagnostic messages that were sent to Steam Rich Presence"]
 
 [[changelog]]
 version = "1.0.0"

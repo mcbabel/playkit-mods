@@ -1,6 +1,6 @@
 id = "double-click-guard"
 name = "Double-Click Guard"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["MCbabel"]
 summary = "Fast double clicks in the menus no longer break creating, joining or starting a lobby."
 description = """
@@ -10,6 +10,10 @@ category = "fixes"
 network = "safe"
 game_builds = ["12576441"]
 color = "#2BA7C9"
+
+[[changelog]]
+version = "1.0.1"
+changes = ["Removed the diagnostic messages that were sent to Steam Rich Presence"]
 
 [[changelog]]
 version = "1.0.0"

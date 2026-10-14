@@ -2,17 +2,17 @@
   {
     "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uasset",
     "payload": "files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uasset.bsdiff",
-    "sha256": "352338c6d5b255cb9c323485db1ee54ae504642dcf6027d4937590e0928efbef",
-    "payload_sha256": "c00fc65bc1d7666df28d7ea0001562e191918ca5da35ad18007e06879f673ae1",
-    "size": 702,
+    "sha256": "a3a584cd0b97512680f32c4e857e1c9d4db75774f2b9c8d90aaf9d02d0ab1426",
+    "payload_sha256": "54d4f1032704b3978de45f15a85846250114937df14e4017d6162c6ea745c8e8",
+    "size": 576,
     "base_sha256": "a2491df6996000fb86084d7b813d03f512da65609fe0731162f8106e3ad6c0fe"
   },
   {
     "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uexp",
     "payload": "files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uexp.bsdiff",
-    "sha256": "12d86719d8fe4da237dbd6a213a7159bddf8d76b22190c1cbdb465adae6cc695",
-    "payload_sha256": "5f7c71b213fcd8b2955ef69439892acdab436b7358e63890c80266ec43ddf69f",
-    "size": 826,
+    "sha256": "5a4bada7059b76ec9cb9d282a9544e4cbea807feb9b17adb4af849407ad2332d",
+    "payload_sha256": "d027ef4ba43e93926931178b4495be19710a142c86808a88ed5feda3f554081d",
+    "size": 712,
     "base_sha256": "85f63b6ee7d12413d8a0cb398f92073a402cb22f1025253157bfdcecbfc33e55"
   }
 ]
