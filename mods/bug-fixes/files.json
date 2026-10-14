@@ -414,21 +414,5 @@
     "payload_sha256": "e904239a9e4c69c80f1a82addded95d73242590e14c7ba0a3a10db40768f1f15",
     "size": 703,
     "base_sha256": "e7e612c027d2fc945de9a03bacc048e1d54c6c0dcb7cc8719105f99bce2213cc"
-  },
-  {
-    "path": "Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uasset",
-    "payload": "files/Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uasset.bsdiff",
-    "sha256": "638a7730c2b8b830080b98f16d75606bca5049e9c1e484be8db9d8f7479aacac",
-    "payload_sha256": "fcb77348e87f721632f6f842477475c94acb20ae10b9461c398e505151a46e68",
-    "size": 449,
-    "base_sha256": "09586bfd8cdf0840be57fd4f5adcbee5f81ba0bb38dcae380ef0450c2b4625dc"
-  },
-  {
-    "path": "Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uexp",
-    "payload": "files/Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uexp.bsdiff",
-    "sha256": "6e9dece701a84145f77055ee1226e8f5ae6c60f1907b4fb8ae593f13c757f4f5",
-    "payload_sha256": "446d0e699cac6b8cb35d83b1a0f90cfee148f9191c1c27dd4604ec63b88c7fc2",
-    "size": 429,
-    "base_sha256": "ea499d6c009aa19b93101802ac757266fe56f03a9ff3dfe2033949a85bda10ec"
   }
 ]
