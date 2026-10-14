@@ -307,7 +307,7 @@
     {
       "id": "double-click-guard",
       "name": "Double-Click Guard",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "authors": [
         "MCbabel"
       ],
@@ -321,6 +321,12 @@
       "color": "#2BA7C9",
       "homepage": null,
       "changelog": [
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Removed the diagnostic messages that were sent to Steam Rich Presence"
+          ]
+        },
         {
           "version": "1.0.0",
           "changes": [
@@ -347,71 +353,71 @@
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset.bsdiff",
-          "sha256": "8277db11558bf87526af882b5b4e9bef60a46af6352b29ce1e3f128d8bb9ed9f",
-          "size": 527,
+          "sha256": "9b09aa8cdeaddb178794a6086c10ee5d589a73f8f90f290c4db115516e2f5696",
+          "size": 443,
           "base_sha256": "e711e92ff5197bf1e26e50e332e461cbf1e603ea78aa9325c05ae40020a1fff1"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp.bsdiff",
-          "sha256": "52da0d1b25bfdf455f9ad18aaa67c5a3f8223455bba151f7ad34d3162b175c07",
-          "size": 439,
+          "sha256": "447ff71aad53bfd752e0150ffa164a141f9873c8db4a29aecb5f3f61a5884744",
+          "size": 339,
           "base_sha256": "842fec6e8a44a69ccbebdfe4f6d7fd6d2e304f2ba15ed86c333a55a7e4740375"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uasset.bsdiff",
-          "sha256": "9ef200ec74eb829affee5b54a93654b6824daa6a5ab77a74fc75f14e2be6a3ed",
-          "size": 673,
+          "sha256": "72c11d13c5e201982ce0078007a10ea1406d52c83e47c8fd31493595d69259e9",
+          "size": 511,
           "base_sha256": "cfc65449c320aaace37911b2d6dbaaad1c6e625534dcceedfc20de82598aaf6d"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uexp.bsdiff",
-          "sha256": "ad5f6c1bafca0a891277e2c67a670bfbec033f0f2d0b67747e7ddc9ca1741a9d",
-          "size": 415,
+          "sha256": "92a5f730b83bd0094980db34db1b78bbc2473fc1289fc1703547f40901073437",
+          "size": 305,
           "base_sha256": "01b9e42c449b02368b1d898e036122e95cd37cb7159e4da588081a3a54d9b56d"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset.bsdiff",
-          "sha256": "e2f4569d36b41e99d36da2a31f60c0b7e66063544db1ffee3fa313d8d5e511f1",
-          "size": 600,
+          "sha256": "1d0422dedc2458252220cf0db8f506b35686ed8f783e12d225c85c4546b13206",
+          "size": 461,
           "base_sha256": "df6458bed8845bab1d57333e9f89d1bcbd084267219ce3d28e57d8eb21441d16"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp.bsdiff",
-          "sha256": "f68ed81c73ad079c4260c956ea9de7b2ad5b0c985c285d3df1f05d6fd072b443",
-          "size": 704,
+          "sha256": "7a3584ae15d3b8bf560ebafa3561442b6677d756ce2eac0d9da309ddf85ce256",
+          "size": 491,
           "base_sha256": "573b5c47451d338f44de30c996d6bfe79722443c83ae8466607d54ae0de14037"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uasset.bsdiff",
-          "sha256": "2339141fea05ac95535f3be45aabddfa90dffe430301812b0b1677c8e1fbc36e",
-          "size": 559,
+          "sha256": "c9c44b1c08b875e8322e5f2d2177e81f67b978e64bdda445b3b3cb603d3a74e9",
+          "size": 438,
           "base_sha256": "feca830743495929cd927b113e9093ef627f0e43d2d1680dbdd8ce05cff01909"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uexp.bsdiff",
-          "sha256": "19993060f23f6c8b84f35e169948bf34e5f5f1638ca2bd33e9b5febd626f4783",
+          "sha256": "94e52524dccecb0fbfcb917dd7e4d1f9791a9e9f1bba135c6fa8fd17a28b7498",
           "size": 277,
           "base_sha256": "e4116effd724a92815829753624a5059f733b2f110528df9e62ad2399115eef6"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uasset.bsdiff",
-          "sha256": "da36993fa74cdb22e4c51a389ef887c3d56534d3b246c165abc059836c6a136d",
-          "size": 614,
+          "sha256": "42648e46c4378a53d0868d548f58a10cc51d40eeb18c892c446775a471d77b77",
+          "size": 488,
           "base_sha256": "e668c7206130a01f42f63fbc857cdd3619f69c6d72748f7eb238e7e641cc2137"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uexp.bsdiff",
-          "sha256": "a37435bf3979305fb198cd6f2b0f3ce4871bd840a726512394686956521ad4ed",
-          "size": 756,
+          "sha256": "089ef3b7146a0380aeec4e85627de29655d11c25b0a58820df79825d3e5c8155",
+          "size": 343,
           "base_sha256": "2fe2beb590412eb9fb40f2e3e0ae9bb9808f92499a202ef70e40a0f68f82c19a"
         }
       ]
@@ -419,7 +425,7 @@
     {
       "id": "instant-piano-keys",
       "name": "Instant Piano Keys",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "authors": [
         "MCbabel"
       ],
@@ -434,6 +440,12 @@
       "homepage": null,
       "changelog": [
         {
+          "version": "1.0.1",
+          "changes": [
+            "Removed the diagnostic messages that were sent to Steam Rich Presence"
+          ]
+        },
+        {
           "version": "1.0.0",
           "changes": [
             "Only the key press is instant, the right/wrong answer always comes from the host"
@@ -445,15 +457,15 @@
         {
           "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/instant-piano-keys/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uasset.bsdiff",
-          "sha256": "352338c6d5b255cb9c323485db1ee54ae504642dcf6027d4937590e0928efbef",
-          "size": 702,
+          "sha256": "a3a584cd0b97512680f32c4e857e1c9d4db75774f2b9c8d90aaf9d02d0ab1426",
+          "size": 576,
           "base_sha256": "a2491df6996000fb86084d7b813d03f512da65609fe0731162f8106e3ad6c0fe"
         },
         {
           "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/instant-piano-keys/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Piano.uexp.bsdiff",
-          "sha256": "12d86719d8fe4da237dbd6a213a7159bddf8d76b22190c1cbdb465adae6cc695",
-          "size": 826,
+          "sha256": "5a4bada7059b76ec9cb9d282a9544e4cbea807feb9b17adb4af849407ad2332d",
+          "size": 712,
           "base_sha256": "85f63b6ee7d12413d8a0cb398f92073a402cb22f1025253157bfdcecbfc33e55"
         }
       ]
