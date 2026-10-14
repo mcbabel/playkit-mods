@@ -34,49 +34,49 @@
   {
     "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset",
     "payload": "files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset.bsdiff",
-    "sha256": "eaa63bafdd2028d7b6ece322e157e03fcc243aa322514cef2b71380fe2fca3df",
-    "payload_sha256": "d600cda740d0859769147d32fe137665587b838d9926c59d71d0ead4b17adb41",
-    "size": 485,
+    "sha256": "ee58f66bebbc2fa602a6b687638b29f1af3130b08e956805766d310e7016d3d0",
+    "payload_sha256": "0f9e4e3372582a559954af7b77ac69ed80f4bc9c11aa25e31186ac4967ea6733",
+    "size": 680,
     "base_sha256": "cabf7cb4b72e73e926086cdd831447885a15073a3cd65a695e4f8fade289eccf"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp",
     "payload": "files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp.bsdiff",
-    "sha256": "c6c753837b87f621ab73a7c654e21714f14b5464db98b781f9da7a6c3335ed48",
-    "payload_sha256": "a2985c35985452d430a65c04433ee3abcb617651f40b885a78aacabd9e5a022e",
-    "size": 414,
+    "sha256": "aa85d62f78b5440a4cbd98d4a5a48af256b98f3bc3612eeb7bf37a550baad2a9",
+    "payload_sha256": "04fffdcb7ff6975b7c1f671949c7b4423f7f063b525c512f39b2019908ed30be",
+    "size": 562,
     "base_sha256": "a12644488f56e0908f9d14dd9cc796a71bf2bc06d2facf020d894feaa17db7df"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset",
     "payload": "files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset.bsdiff",
-    "sha256": "353a72a4432ec98f32521b09d75cc1dd3b378f4f53e174f58047d13eec01b418",
-    "payload_sha256": "a28cca9dd82f0f84a66f9ac955de2ea1c6cb2fd87c093ed420c3aa40f55cc3fb",
-    "size": 944,
+    "sha256": "050ca70f460fc68108503eaca4a82aaeec33ac9305db374c49b511078d4e8084",
+    "payload_sha256": "232d407d45d1f6ea5675f1a0f3f534652a722418965188555989c71451a79a3a",
+    "size": 1134,
     "base_sha256": "f8f356095e11ca0963b30463f567d1bfb03c7b7b73901f76957f409d5cc8eb22"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp",
     "payload": "files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp.bsdiff",
-    "sha256": "e24342b8532a14594fbf25452ded60acb92f30797865e3f1ca00bd35a5413d93",
-    "payload_sha256": "b2896c6b878a9e6f6abe55896769bdb71fb85691d3850b3dda8da076b95d54b7",
-    "size": 811,
+    "sha256": "89191cca76ffb72da72ceb93fa47f9117b169de493e1f014d926602600f85855",
+    "payload_sha256": "0b01ba87601431d38ac0b666bb7e3bb35708b91fe7eadee5c3f83441874c46db",
+    "size": 927,
     "base_sha256": "4f3d114bf42c1ed3a044ae3b5db2d65665c45d6a7df1e755a411a097ce306854"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset",
     "payload": "files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset.bsdiff",
-    "sha256": "451bc4b5c4fc6e2f8e5fde8d22b6dda173e504d9ce332a4e2ef66d6200b6bdb5",
-    "payload_sha256": "ef2c2ceddcdebe11bb2c9d9d55ccccf2ac88bcf9450af122d5ef09c83616a2b8",
-    "size": 464,
+    "sha256": "c77099fecba8a6318cf852ffce1a5d5184b6da0d618fd363a6913463c1fca31d",
+    "payload_sha256": "4b468721de242faeea935daf1e912b02731bbb595827a7f719698018beeb1521",
+    "size": 696,
     "base_sha256": "d3d47eda9b4992845ab663cf55ab1d754f944785786fce8e7ec7ee79b76fef85"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp",
     "payload": "files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp.bsdiff",
-    "sha256": "9988a7eeaf070b4e75a99e163b02dde6085dd28a78a71ae79a364f84a02bede7",
-    "payload_sha256": "16594e0a3d5dd30281c785da65407117d5e577e525f948f7a69acf6bb8a04da4",
-    "size": 413,
+    "sha256": "a0b7cfd665f5d33eb8beab55bebf105d8b1d443f4f15109ab6074cd9db63eb8d",
+    "payload_sha256": "7a92c8235e8c8ab971cfac413ff11892fa7c1f00d1fd42113bb28cef9beeed5c",
+    "size": 549,
     "base_sha256": "d7d9a3e9a7077ea195f0efcf716d0d9e5af59b92287ff71f8a90974858392a35"
   }
 ]

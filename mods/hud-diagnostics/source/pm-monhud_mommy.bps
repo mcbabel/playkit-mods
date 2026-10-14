@@ -1,16 +1,31 @@
 // pm-monhud (BP_NetworkMommy)
-// Bug: in a Private Match where a client is the monster, the monster HUD is never created. The game creates it in Owner_OnPossessed only when
+// Bug 1: in a Private Match where a client is the monster, the monster HUD is never created. The game creates it after Owner_OnPossessed only when
 // MasterFunctionLibrary::IsLocallyControlledByPlayer is true, which also needs the pawn's PlayerState. On the owning client that
 // RPC arrives before the PlayerState has replicated, so the check fails once and is never repeated (vanilla never had a client monster at round start).
-// Fix: when Owner_OnPossessed arrives, check every 0.5 s on the owning client and create the HUD with the game's own CreateMommyWidget as soon as the game's check passes (local widgets only, no new RPC).
+// Bug 2: the client monster cannot use its sabotage (G). Monster::LoadSabotages is BlueprintAuthorityOnly, so on a client it is skipped and
+// SabotageName stays None; the input event then does nothing. The server's Server_DoSabotage takes name and level from the client as they are.
+// Fix: when Owner_OnPossessed arrives, check every 0.5 s on the owning client; as soon as the game's own check passes, create the HUD with the game's
+// CreateMommyWidget and, on a client only, take the selected sabotage from the local sabotage save (SabotageSaveGame::GetSabotageSave, the same
+// value LoadSabotages reads) with level 1 and show its icon. Local widgets and local variables only, no new RPC.
+
+function PM_MonSab() {
+    local PM_Sv: object<SabotageSaveGame>;
+    if !KismetMathLibrary::Not_PreBool(HasAuthority()) goto done;
+    PM_Sv = SabotageSaveGame::GetSabotageSave();
+    if !KismetSystemLibrary::IsValid(PM_Sv) goto done;
+    ClientDesiredSabotageName = PM_Sv.GetSelectedSabotage();
+    SabotageName = ClientDesiredSabotageName;
+    SabotageLevel = 1;
+    self.virtual BP_SetSabotageIconFromName(SabotageName);
+done:
+}
 
 function PM_MonHud() {
     if !IsLocallyControlled() goto done;
-    if !KismetMathLibrary::Not_PreBool(KismetSystemLibrary::IsValid(MommyHUD)) goto stop;
     if !MasterFunctionLibrary::IsLocallyControlledByPlayer(self) goto done;
-    CreateMommyWidget();
-stop:
     KismetSystemLibrary::K2_ClearTimer(self, "PM_MonHud");
+    CreateMommyWidget();
+    PM_MonSab();
 done:
 }
 
