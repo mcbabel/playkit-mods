@@ -11,6 +11,412 @@
   },
   "mods": [
     {
+      "id": "bug-fixes",
+      "name": "Bug Fixes",
+      "version": "1.0.0",
+      "authors": [
+        "MCbabel"
+      ],
+      "summary": "Fixes 36 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods.",
+      "description": "Fixes for bugs found by reading the game's own Blueprint code. Each fix only changes what you see and do on your own PC.\nMenus: hidden Clear button on the monster sabotage page (the game cannot save an empty sabotage), new items show up in Customize without a restart, preset names are compared exactly, the shop no longer keeps a stale page, failed Toy Box purchases clear the loading overlay, a Playcoin purchase is completed once, the intro cannot hang, no error toast every minute from a hidden old menu.\nLobby and matches: joining a lobby whose start countdown already runs no longer shows a fresh 30 seconds, notices like Host Left Lobby are visible again after a map change, the loading screen shows the right text, one results screen with one countdown, the monster player list keeps its monster style, the sabotage icon no longer sticks on ?, B no longer changes your queue preference during a match.\nPlayers: pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, repeated emotes play fully, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.\nPuzzles: the Reflex ticking stops on a hit, hand panel bars no longer flash empty when you let go, train call panels get their outline, the claw shows the right hand, Genius perk mistakes are counted correctly.\nWhen you host (the monster in public matches) a few more fixes apply for the whole round.",
+      "category": "fixes",
+      "network": "safe",
+      "game_builds": [
+        "12576441"
+      ],
+      "color": "#4F9D69",
+      "homepage": null,
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "changes": [
+            "First release"
+          ]
+        }
+      ],
+      "requires": [],
+      "files": [
+        {
+          "path": "Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uasset.bsdiff",
+          "sha256": "8d227500bc22e8744c63c91d338ea3ac0e19134fe57f1faac4a22f55e4aa0dfc",
+          "size": 329,
+          "base_sha256": "24518778042c769445a21f60914ea8ffd91ba7a0e538010e1dd27419a10b5d34"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/BP_MultiplayerPlayerController.uexp.bsdiff",
+          "sha256": "c0d537033937f9dc1912ba1ccd31e9153b3676455640881b47fdd2c413a8e8b9",
+          "size": 390,
+          "base_sha256": "abe54080a1d03de18c54c4374f1237f752c27b7df0f9ada6ff1273e513a9b253"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Base/GS_Escape.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/GS_Escape.uasset.bsdiff",
+          "sha256": "4f9686ef6b1ca003667e9112640ec518f8bd47f39fdba0ebcaca073fe361a076",
+          "size": 290,
+          "base_sha256": "148d3dd252e93c2e732b91a65123a390119c614ebcaaae3ca0e1817253d11250"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Base/GS_Escape.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/GS_Escape.uexp.bsdiff",
+          "sha256": "d8fed908c19a83dbfe531a720e8f472bd6080b4c35e06bf52343f52192702fac",
+          "size": 366,
+          "base_sha256": "51192229644557a4569f73407f990e664cc0fb07f98c0eb9e5a8a9f5f4ecd6df"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset.bsdiff",
+          "sha256": "f2876449bf15a4c54f26b2af6d51f88cd82921c4f973f6d43669d5aae1674061",
+          "size": 608,
+          "base_sha256": "40fcd596b19f52169019c14f41308193eb3fa2264171c9aa92b54639e7ee3af4"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp.bsdiff",
+          "sha256": "d76c505a118a174a455a2ea4c1458b103111ebcf20e5797de42c45e9285b54af",
+          "size": 766,
+          "base_sha256": "0ef8cce36c86fda1c637ef6b4c4f178f559097d4e5ffcc6a52103d63f2a677ac"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Base/PlaytimeFunctionLibrary.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Base/PlaytimeFunctionLibrary.uexp.bsdiff",
+          "sha256": "adb9ee45b10fe1434e2615d3f5e6b77d024e17c315c4ac0ba08fee7d44b61ce6",
+          "size": 145,
+          "base_sha256": "c17fb1c3760de042042a1829bdaa932607371ec1a6a0c09479e43599d16afcc0"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Character/Cosmetics/Containers/BP_MeshContainer_Player.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Character/Cosmetics/Containers/BP_MeshContainer_Player.uexp.bsdiff",
+          "sha256": "e6bea74c51f18d9497d8053c8284aefa953e7974638a2bacd27b9c1ef9f272d7",
+          "size": 152,
+          "base_sha256": "203022bf602ffbba45d20b772e9321eb591f8d9449a061a8ea64a431bb22aeb7"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Game/BP_NetworkSwingHandle.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Game/BP_NetworkSwingHandle.uasset.bsdiff",
+          "sha256": "ac966e1f87a63e06c6c5441890f494ed467711fbea352ab02f39814673ade981",
+          "size": 172,
+          "base_sha256": "2e198bdc9ad990f2909ef1215a63bd64dc19f02185d621364fda8db49da2e0ba"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Game/BP_NetworkSwingHandle.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Game/BP_NetworkSwingHandle.uexp.bsdiff",
+          "sha256": "c4168c18648cb1adc8d75df4338e05bf6ec65b684896f48337ba347a84dc55d5",
+          "size": 249,
+          "base_sha256": "75d004dedfcd1bbfb61d55e7be06c94989b6f7376d83251b6fb6cfb4270ca8af"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Game/MonsterSelector/BP_MonsterContainer.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Game/MonsterSelector/BP_MonsterContainer.uasset.bsdiff",
+          "sha256": "b92cbfade3da7cd4caba00eff2049e14200278535b4f56d4dc8f03975de2bc92",
+          "size": 255,
+          "base_sha256": "8b143980a4ad030352a49a17ccafbd1bf25f9662526d3efed53411dd01716c1c"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Game/MonsterSelector/BP_MonsterContainer.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Game/MonsterSelector/BP_MonsterContainer.uexp.bsdiff",
+          "sha256": "4061a8aadf7e9823d1e9d7b424f6b525fd338a992a9c7e1c524b8d1354d71cec",
+          "size": 212,
+          "base_sha256": "d9496282bd8f81e276cf1d34b691a4b12b27a88b38cda5ffc70c7cc9af6d354d"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Interaction/Sewers/BP_WormholeEntrance.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Interaction/Sewers/BP_WormholeEntrance.uasset.bsdiff",
+          "sha256": "00508cc50feeb741b9f079ff910a17f07de34a3e8eb7d88f48d80782b9a77667",
+          "size": 324,
+          "base_sha256": "270a8a6b630e427423a6f0c294e7961d0163bd7465c15274cdfa9ef288db0029"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Interaction/Sewers/BP_WormholeEntrance.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Interaction/Sewers/BP_WormholeEntrance.uexp.bsdiff",
+          "sha256": "fa7b70a8182eefd0884f8f14e568a6f57236155635ec63a0c94efdc5a1088018",
+          "size": 458,
+          "base_sha256": "1ab609ede568b1d7254072257d5758f5bcf3ccd2b31fd710d2662464ddc2f19a"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/BP_PuzzlePillar.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/BP_PuzzlePillar.uasset.bsdiff",
+          "sha256": "8a9a510942a24736f1295a5c5e08bad05b7f4d78b960a8575956322442194c9d",
+          "size": 326,
+          "base_sha256": "27e9b112843ce8811f4f4304767cd72ac2f8a4c9affa7503618203ad02b343ad"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/BP_PuzzlePillar.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/BP_PuzzlePillar.uexp.bsdiff",
+          "sha256": "ab9b14710cc8d907303f9b38ee72abda33fa0d140eaa5314863687e4616b26bf",
+          "size": 283,
+          "base_sha256": "50f566f66c76c2e15dda6c85ac3cdcf0180ebd50830448f73e46569133278d3c"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Memory.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Memory.uasset.bsdiff",
+          "sha256": "1cac6f3d1fa74f4fb247cf7b98d43dba58233bca388c184cb10cecb4f260be46",
+          "size": 325,
+          "base_sha256": "4b5f9774218887d2ac2d13334489104c266f27a9c2ae97337065bdfee39287de"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Memory.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Memory.uexp.bsdiff",
+          "sha256": "58a9496cd3d61151d48b9e10445c4914afb319a979b09a89ff3eda6395cee111",
+          "size": 472,
+          "base_sha256": "c1018e024b34da2d8d91dc635e96b060b9efda7a6e4f0ccfa1a408351d326f5c"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Reflex.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Reflex.uasset.bsdiff",
+          "sha256": "3ddc852724499ed21dcd35d77bfe92ee5156dbc9385db914338401a4674b8072",
+          "size": 210,
+          "base_sha256": "ccf054b2491a587ee349f4f669eeafc3ffd27155e4e0e09bbc415a9a62df1f27"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Reflex.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_Puzzle_Reflex.uexp.bsdiff",
+          "sha256": "31f2ec8f77cbff6ccf9c2818190439d7beba93b2f2aaa3c1d94a7bbe36f62421",
+          "size": 326,
+          "base_sha256": "b2305526e295527d6912937340686dc3ab7a090afed0a92d6d05cc6b7909e37e"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_TrainCall.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_TrainCall.uasset.bsdiff",
+          "sha256": "c7d217dd5baac603f397757c142a8098517702add123eb93d01d3fd953b6b8a4",
+          "size": 324,
+          "base_sha256": "bedddaa1635f296068be58561980fa8d6c63afd673f8fb5ca47758b4e39e2d14"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_TrainCall.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/BP_TrainCall.uexp.bsdiff",
+          "sha256": "f71c78b630dd671bb72994ddef0ee8e10ffdd5f92b6dc5b9adb92d21c239bde5",
+          "size": 234,
+          "base_sha256": "b747fe385b4adaab96f8c65eb3cdb26291593aef68351230efa65b630bd58c74"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/ClawPuzzle/BP_Puzzle_Claw.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/ClawPuzzle/BP_Puzzle_Claw.uasset.bsdiff",
+          "sha256": "34b8368c23bd768b4732411d3b962c96abd7ac071adf96327fb4cb0985a2c5c5",
+          "size": 196,
+          "base_sha256": "ea5caf678352e970f42dabacff12b9cd8c153d57bf8aefbc8294f8de3ff49bfa"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/ClawPuzzle/BP_Puzzle_Claw.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/ClawPuzzle/BP_Puzzle_Claw.uexp.bsdiff",
+          "sha256": "9e86a5dae753627f97a603f6573b8073059f67846da89691dd8863ea2883f091",
+          "size": 348,
+          "base_sha256": "fdecd5d7a3050e583756f79aa772a993a1235e2d3027da82a74a61ccc31d8efb"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/GeneratorPuzzle/BP_MP_HandPanel.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/GeneratorPuzzle/BP_MP_HandPanel.uasset.bsdiff",
+          "sha256": "517881f4d1e7fa0283de5630fad2346558af03c700696f9e2cf4809290428fb2",
+          "size": 329,
+          "base_sha256": "092515ed2ca0149deb9914015b618dbd6aad3cbc7d5a2838d247d32dba2b377d"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/GeneratorPuzzle/BP_MP_HandPanel.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Gameplay/Puzzles/Triggers/GeneratorPuzzle/BP_MP_HandPanel.uexp.bsdiff",
+          "sha256": "c764eaad7ef9aee046442eb47a50477b394458538cee8eaa5ae7d263f954867e",
+          "size": 280,
+          "base_sha256": "d0edd878bf8d3c95692848a5b9ea92c6c146ea05e763a46031954cdc0cd00c5b"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/Customization/Sabotages/UI_Sabotages.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/Customization/Sabotages/UI_Sabotages.uasset.bsdiff",
+          "sha256": "f6e0fe7b8df39060296c9271b5c34bad06a31aa40a263dbe708df2c39b23736e",
+          "size": 189,
+          "base_sha256": "ea0fd79992ce274bfac4aeba0baf6dda79584f33ac7adfbd0223e0bb18464834"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/Customization/Sabotages/UI_Sabotages.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/Customization/Sabotages/UI_Sabotages.uexp.bsdiff",
+          "sha256": "b311349f7e19b25d591e99bf54cc32e2dae4e1ba124de48e1c8c5ff8319ebe5f",
+          "size": 216,
+          "base_sha256": "d0459a3e0542aff9192890337ea3134a07812854ab43c197e33be26758c21c5f"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/IngameScreens/UI_SabotageIconContainer.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/IngameScreens/UI_SabotageIconContainer.uasset.bsdiff",
+          "sha256": "6d69f79655954f5ece5f151ceb77c4cc63960f8f9f24619dc08e210b245a156d",
+          "size": 162,
+          "base_sha256": "4efe8906610f21d8de1965fcb7bcd411d614755fadeadea6837ae6be17d8a78c"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/IngameScreens/UI_SabotageIconContainer.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/IngameScreens/UI_SabotageIconContainer.uexp.bsdiff",
+          "sha256": "a1c2c0e1336de3876fc76b759e473b530d0effa17593eb16e9362c55250b5c1d",
+          "size": 211,
+          "base_sha256": "c86a76ef27afbe9ffe8b563806965203b8bd6fd91edc07b6fa4b06c573b3ee79"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/BuyPoints/UI_BuyPlaycoins.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/BuyPoints/UI_BuyPlaycoins.uasset.bsdiff",
+          "sha256": "795ea3e6d7cbbd13f6eb924ea0dcca200365ff45a24c004b91a1aebd02bc4c39",
+          "size": 309,
+          "base_sha256": "01b52e5e90e9a96a64d2b268dc1f8fc79d94845765f602bc1470493b2eb20785"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/BuyPoints/UI_BuyPlaycoins.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/BuyPoints/UI_BuyPlaycoins.uexp.bsdiff",
+          "sha256": "df5e094678deaf818c41051cb0e2c9e055886cd44595e0c0b09e2be150a862f3",
+          "size": 369,
+          "base_sha256": "8c5e95eede207ffaef9a62c481b739a7a8d0e8eee23ab770b7e7b3a8b91648a5"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset.bsdiff",
+          "sha256": "20f35b217d8b1ab98f363987dc4ed35b0430c435c2c73e338c6114d97ad2743f",
+          "size": 1098,
+          "base_sha256": "e711e92ff5197bf1e26e50e332e461cbf1e603ea78aa9325c05ae40020a1fff1"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp.bsdiff",
+          "sha256": "878ab33128db17ace70c49625adb37e3e32c90c3e14c1c2bc5f3692c6a487862",
+          "size": 1166,
+          "base_sha256": "842fec6e8a44a69ccbebdfe4f6d7fd6d2e304f2ba15ed86c333a55a7e4740375"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Play/UI_Play.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/Play/UI_Play.uasset.bsdiff",
+          "sha256": "a805bdb2f0e6388003846ee1dfcc5f122ad923bbd8fd76aa57fd33987370f0e6",
+          "size": 408,
+          "base_sha256": "79031fbf7150f9833d18be23862603efeda9aad1588a14b4059357b7e9426ac7"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Play/UI_Play.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/Play/UI_Play.uexp.bsdiff",
+          "sha256": "011454b6dfce22e4d064cac59be7b45d84c3ddbca4f4c4b74a403598ddf232be",
+          "size": 310,
+          "base_sha256": "3492e91469e2c816533e4ae7f1a2dcfb844154faf2430dfbe0fc82df04e2c3a5"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/ToyBox/UI_BuyToyboxNew.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/ToyBox/UI_BuyToyboxNew.uasset.bsdiff",
+          "sha256": "d02e7a6f8fb977bf0053dde259dfcdf2cf23b54fb4d70456cbc40f212c1340b5",
+          "size": 219,
+          "base_sha256": "29cc3a5be4fcae98b658354ac7cfe274838732f4148c631bffa6cefe1f23feee"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/ToyBox/UI_BuyToyboxNew.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/ToyBox/UI_BuyToyboxNew.uexp.bsdiff",
+          "sha256": "da2cac555950b20533a657da78b19c9225e52aeff5362c322feac31efb44a34c",
+          "size": 245,
+          "base_sha256": "4f25a042dfeb2f28a6756a4f61d99265bfb8314e2d0dddace237e60c28fd8c5a"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_IntroCinematic.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_IntroCinematic.uasset.bsdiff",
+          "sha256": "1c491e6300a39e18be9a4e27234997ba4d5b9053b5c73626fdf1b9af12d93be7",
+          "size": 635,
+          "base_sha256": "3ddb3e0424c9fa808bfbb621a15d6eecbaa35f4f812d48e9e42631e3613fdd49"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_IntroCinematic.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_IntroCinematic.uexp.bsdiff",
+          "sha256": "a1733cc05db5cb4e960586cccbc4964a0b8a1d15bc16116ab7dd1740397774ca",
+          "size": 615,
+          "base_sha256": "b0a289a6f273511bc4b8433e413c50b0db6f99534e023d9552925c6310762f45"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uasset.bsdiff",
+          "sha256": "12d9bae963e2db93ca343e24fc10d04777ba42ac78573e0b3baee89a57143244",
+          "size": 727,
+          "base_sha256": "06ab7ccee041b385591b871683d962b9ebd6b1d1cca6479286754d4492535b24"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/MonsterHUDs/UI_MonsterHUD.uexp.bsdiff",
+          "sha256": "e1c7fec03ef1a18dc58eb9989078335fac6f78ca285813694a1e14a1a0b5e6dc",
+          "size": 891,
+          "base_sha256": "8947bf05d8dbb839f0d8ab2aa354e61d172d4ae570c9f769c7edebdd92a40383"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uasset.bsdiff",
+          "sha256": "f2e0623e2060e0e3cd1ab827455e148de97a66357be7f8517a5940b9922dde59",
+          "size": 645,
+          "base_sha256": "89d9a961325a9b3347bf7624314d1f7af488878c5456b6b6c5842906e54b4658"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_CosmeticCatalog.uexp.bsdiff",
+          "sha256": "ff6201fe84e0706fb55091447bec37b15b7a4a8b10d8a530dd0e7509d5d76d19",
+          "size": 1301,
+          "base_sha256": "e91dbdb6421073c2db5ec27a2ea6403022c40336059bbde6254619829ea71de2"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_Store.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_Store.uasset.bsdiff",
+          "sha256": "d0b659e181ad80255b13e1fe427c91105236ce5a73fd89b15fa40107b6262e74",
+          "size": 343,
+          "base_sha256": "c854843764117a249e946f77c6b2a9fc05dba8b928c6a0898455fd339c071e58"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_Store.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Interface/Shoppy/Widgets/UI_Store.uexp.bsdiff",
+          "sha256": "bcc55174d2fba0e4f960a94b31a41804bf48ed1f695d142d96c93b476a513663",
+          "size": 459,
+          "base_sha256": "9842494fd3d2d194cc41b7b9076514945131bb3a62b82471cd5bb85921c7a3b2"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Monsters/BPC_PlayerDetectionSystem_BA.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/Monsters/BPC_PlayerDetectionSystem_BA.uasset.bsdiff",
+          "sha256": "1a385e9cbebc69287cc115cb9f872b3ca144ea929a497a8420bbf63d4aded7ad",
+          "size": 441,
+          "base_sha256": "bd5e71fe69154f8577835294a804c2797ab701673918be549b01f3e52f476bb7"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Monsters/BPC_PlayerDetectionSystem_BA.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/Monsters/BPC_PlayerDetectionSystem_BA.uexp.bsdiff",
+          "sha256": "6e363c57a6ce5d76b6c42997701b42d617fd8977f8a2989a2edc2fe8f8f40d44",
+          "size": 414,
+          "base_sha256": "d98f0463cdfaf8630f1b0878476730427ce29349e3865ba3e9df5234fe35e5ce"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uasset.bsdiff",
+          "sha256": "9ed3b917a868d694ad9667fdd64706fa7641a0e7db4bb363efd914cdb527e9ef",
+          "size": 771,
+          "base_sha256": "80af0acb967c351d48c85888236fe694d6252c036397082289f1f549349b722b"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uexp.bsdiff",
+          "sha256": "423b5f2566da109e6f1fab4a62aa3fb396657344246083b50fc61c370add897f",
+          "size": 1584,
+          "base_sha256": "31630f41c7f392dc431341e4139ed52677f843a435d88df7c5ee562a49f6e863"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkHand.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkHand.uasset.bsdiff",
+          "sha256": "bf81f44ae286fbda10ebad290dfb4f8aa4d6a7f9e0dd550fe624c507994a13b7",
+          "size": 407,
+          "base_sha256": "bd03ce73372fd29a269f375597f573f51d404c02d4e083cc88d35900768dc5de"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkHand.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkHand.uexp.bsdiff",
+          "sha256": "a7d8fa20bb5518195fe1b992819a10c3545f60d180cce91dd11a65fb37fec231",
+          "size": 703,
+          "base_sha256": "e7e612c027d2fc945de9a03bacc048e1d54c6c0dcb7cc8719105f99bce2213cc"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uasset.bsdiff",
+          "sha256": "638a7730c2b8b830080b98f16d75606bca5049e9c1e484be8db9d8f7479aacac",
+          "size": 449,
+          "base_sha256": "09586bfd8cdf0840be57fd4f5adcbee5f81ba0bb38dcae380ef0450c2b4625dc"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uexp.bsdiff",
+          "sha256": "6e9dece701a84145f77055ee1226e8f5ae6c60f1907b4fb8ae593f13c757f4f5",
+          "size": 429,
+          "base_sha256": "ea499d6c009aa19b93101802ac757266fe56f03a9ff3dfe2033949a85bda10ec"
+        }
+      ]
+    },
+    {
       "id": "community-browser",
       "name": "Community Browser",
       "version": "1.0.0",
@@ -305,124 +711,6 @@
       ]
     },
     {
-      "id": "double-click-guard",
-      "name": "Double-Click Guard",
-      "version": "1.0.1",
-      "authors": [
-        "MCbabel"
-      ],
-      "summary": "Fast double clicks in the menus no longer break creating, joining or starting a lobby.",
-      "description": "Clicking a menu button twice while Steam is still busy used to start two lobbies or leave one half open.\nClicks that arrive while the game is still working on the last one are ignored now.",
-      "category": "fixes",
-      "network": "safe",
-      "game_builds": [
-        "12576441"
-      ],
-      "color": "#2BA7C9",
-      "homepage": null,
-      "changelog": [
-        {
-          "version": "1.0.1",
-          "changes": [
-            "Removed the diagnostic messages that were sent to Steam Rich Presence"
-          ]
-        },
-        {
-          "version": "1.0.0",
-          "changes": [
-            "First release"
-          ]
-        }
-      ],
-      "requires": [],
-      "files": [
-        {
-          "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset.bsdiff",
-          "sha256": "6ae3e32e4bbff3fa4371bc9e66e9236b0881b906b8fff651c11e230b17ea3d31",
-          "size": 437,
-          "base_sha256": "40fcd596b19f52169019c14f41308193eb3fa2264171c9aa92b54639e7ee3af4"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp.bsdiff",
-          "sha256": "847be95c03504b0ee78ab5eb1231d69d7142434374115f721ebf639e16445c3a",
-          "size": 542,
-          "base_sha256": "0ef8cce36c86fda1c637ef6b4c4f178f559097d4e5ffcc6a52103d63f2a677ac"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset.bsdiff",
-          "sha256": "9b09aa8cdeaddb178794a6086c10ee5d589a73f8f90f290c4db115516e2f5696",
-          "size": 443,
-          "base_sha256": "e711e92ff5197bf1e26e50e332e461cbf1e603ea78aa9325c05ae40020a1fff1"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp.bsdiff",
-          "sha256": "447ff71aad53bfd752e0150ffa164a141f9873c8db4a29aecb5f3f61a5884744",
-          "size": 339,
-          "base_sha256": "842fec6e8a44a69ccbebdfe4f6d7fd6d2e304f2ba15ed86c333a55a7e4740375"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uasset.bsdiff",
-          "sha256": "72c11d13c5e201982ce0078007a10ea1406d52c83e47c8fd31493595d69259e9",
-          "size": 511,
-          "base_sha256": "cfc65449c320aaace37911b2d6dbaaad1c6e625534dcceedfc20de82598aaf6d"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uexp.bsdiff",
-          "sha256": "92a5f730b83bd0094980db34db1b78bbc2473fc1289fc1703547f40901073437",
-          "size": 305,
-          "base_sha256": "01b9e42c449b02368b1d898e036122e95cd37cb7159e4da588081a3a54d9b56d"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset.bsdiff",
-          "sha256": "1d0422dedc2458252220cf0db8f506b35686ed8f783e12d225c85c4546b13206",
-          "size": 461,
-          "base_sha256": "df6458bed8845bab1d57333e9f89d1bcbd084267219ce3d28e57d8eb21441d16"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp.bsdiff",
-          "sha256": "7a3584ae15d3b8bf560ebafa3561442b6677d756ce2eac0d9da309ddf85ce256",
-          "size": 491,
-          "base_sha256": "573b5c47451d338f44de30c996d6bfe79722443c83ae8466607d54ae0de14037"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uasset.bsdiff",
-          "sha256": "c9c44b1c08b875e8322e5f2d2177e81f67b978e64bdda445b3b3cb603d3a74e9",
-          "size": 438,
-          "base_sha256": "feca830743495929cd927b113e9093ef627f0e43d2d1680dbdd8ce05cff01909"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uexp.bsdiff",
-          "sha256": "94e52524dccecb0fbfcb917dd7e4d1f9791a9e9f1bba135c6fa8fd17a28b7498",
-          "size": 277,
-          "base_sha256": "e4116effd724a92815829753624a5059f733b2f110528df9e62ad2399115eef6"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uasset.bsdiff",
-          "sha256": "42648e46c4378a53d0868d548f58a10cc51d40eeb18c892c446775a471d77b77",
-          "size": 488,
-          "base_sha256": "e668c7206130a01f42f63fbc857cdd3619f69c6d72748f7eb238e7e641cc2137"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/double-click-guard/files/Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uexp.bsdiff",
-          "sha256": "089ef3b7146a0380aeec4e85627de29655d11c25b0a58820df79825d3e5c8155",
-          "size": 343,
-          "base_sha256": "2fe2beb590412eb9fb40f2e3e0ae9bb9808f92499a202ef70e40a0f68f82c19a"
-        }
-      ]
-    },
-    {
       "id": "instant-piano-keys",
       "name": "Instant Piano Keys",
       "version": "1.0.1",
@@ -513,56 +801,14 @@
       ]
     },
     {
-      "id": "phantom-lobby-fix",
-      "name": "Phantom Lobby Fix",
-      "version": "1.0.0",
-      "authors": [
-        "MCbabel"
-      ],
-      "summary": "After a kick or a lost connection you really leave the old lobby instead of staying stuck in it.",
-      "description": "Without this fix the game could keep you in a lobby that no longer exists after you were kicked or lost the connection,\nso the next match or private lobby behaved strangely. Now the old lobby is left and reset cleanly.",
-      "category": "fixes",
-      "network": "safe",
-      "game_builds": [
-        "12576441"
-      ],
-      "color": "#7A5CFF",
-      "homepage": null,
-      "changelog": [
-        {
-          "version": "1.0.0",
-          "changes": [
-            "First release"
-          ]
-        }
-      ],
-      "requires": [],
-      "files": [
-        {
-          "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/phantom-lobby-fix/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset.bsdiff",
-          "sha256": "bbb13fb3047eaeee600ef268d8412d9768060bc36f6e3aeb78d6bbb79c691fb8",
-          "size": 345,
-          "base_sha256": "40fcd596b19f52169019c14f41308193eb3fa2264171c9aa92b54639e7ee3af4"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/phantom-lobby-fix/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp.bsdiff",
-          "sha256": "07a3c2c37ff1229fca7089522ae61f91c9d323d436c928da02f5710aaca766b4",
-          "size": 393,
-          "base_sha256": "0ef8cce36c86fda1c637ef6b4c4f178f559097d4e5ffcc6a52103d63f2a677ac"
-        }
-      ]
-    },
-    {
       "id": "private-match",
       "name": "Private Match",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "authors": [
         "MCbabel"
       ],
       "summary": "Lobbies only your friends can join: pick a side, create a match, then invite friends or share the four-digit code.",
-      "description": "Main menu > PRIVATE MATCH > choose Monster or Specialist > CREATE MATCH.\nInvite friends with the + button above the menu icons. It opens your Steam friends list.\nWhen a friend accepts, their game opens Private Match and joins your lobby, even if it was closed.\nFriends can also join with the key button (LOBBY CODE). The host starts the round with two or more players.\nEveryone in the lobby needs this mod.",
+      "description": "Main menu > PRIVATE MATCH > choose Monster or Specialist > CREATE MATCH.\nInvite friends with the + button above the menu icons. It opens your Steam friends list.\nWhen a friend accepts, their game opens Private Match and joins your lobby, even if it was closed.\nFriends can also join with the key button (LOBBY CODE). The host starts the round with two or more players.\nFast double clicks cannot create, join or start a lobby twice, and after a kick or a lost connection you really leave the old lobby.\nEveryone in the lobby needs this mod.",
       "category": "multiplayer",
       "network": "lobby",
       "game_builds": [
@@ -571,6 +817,13 @@
       "color": "#3A6BFF",
       "homepage": null,
       "changelog": [
+        {
+          "version": "1.2.0",
+          "changes": [
+            "Includes the Double-Click Guard and Phantom Lobby Fix mods, which are no longer separate. Uninstall them before updating",
+            "The Back button can be pressed again after 0.2 s instead of 0.6 s"
+          ]
+        },
         {
           "version": "1.1.0",
           "changes": [
@@ -604,71 +857,85 @@
         {
           "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uasset.bsdiff",
-          "sha256": "078745a64f4405a2a31af30dc4410c302430d122bc8d78646269d00fff048eb4",
-          "size": 309,
+          "sha256": "b0152014273b5b35745847ce7a3dd2a06c8b8434ae1d8902fd14c96715dcc65f",
+          "size": 520,
           "base_sha256": "40fcd596b19f52169019c14f41308193eb3fa2264171c9aa92b54639e7ee3af4"
         },
         {
           "path": "Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Base/MultiplayerGameInstance.uexp.bsdiff",
-          "sha256": "a8dfdba1f433c2ac4c6b1f93989f748ad9e6b649d32f373e7378e28daa38ed25",
-          "size": 943,
+          "sha256": "9ea3f27e3592a04a0c83c0037ffd0f5564853dc82cfe5ef4864519408b49494f",
+          "size": 1309,
           "base_sha256": "0ef8cce36c86fda1c637ef6b4c4f178f559097d4e5ffcc6a52103d63f2a677ac"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uasset.bsdiff",
-          "sha256": "35a3e396750353b0f3147d81efdea2074b8c7e6bc71d4619e425df5ecfb5cc00",
-          "size": 655,
+          "sha256": "e98f3c04995a98dc4a7b6b3371e44f15a2042f4f38616e3c69091058ce7d02db",
+          "size": 801,
           "base_sha256": "e711e92ff5197bf1e26e50e332e461cbf1e603ea78aa9325c05ae40020a1fff1"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/Matchmaking/UI_MatchmakingStatus.uexp.bsdiff",
-          "sha256": "9fad4f35742898f0945a0daf1ec701b772ab5a35592efc75a339dcf820cc8392",
-          "size": 1757,
+          "sha256": "58087361994c4a2d53b2ad4f29fcae0d86bc9125502ebd3a73b4a94a4487566f",
+          "size": 1827,
           "base_sha256": "842fec6e8a44a69ccbebdfe4f6d7fd6d2e304f2ba15ed86c333a55a7e4740375"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uasset.bsdiff",
+          "sha256": "72c11d13c5e201982ce0078007a10ea1406d52c83e47c8fd31493595d69259e9",
+          "size": 511,
+          "base_sha256": "cfc65449c320aaace37911b2d6dbaaad1c6e625534dcceedfc20de82598aaf6d"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/Modals/UI_JoinLobbyModal.uexp.bsdiff",
+          "sha256": "92a5f730b83bd0094980db34db1b78bbc2473fc1289fc1703547f40901073437",
+          "size": 305,
+          "base_sha256": "01b9e42c449b02368b1d898e036122e95cd37cb7159e4da588081a3a54d9b56d"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uasset.bsdiff",
-          "sha256": "9966d43460fb2a1762e0fc233a4255367d399b8346dd4663b74d5d8347a401bd",
-          "size": 282,
+          "sha256": "c15236c5baf2b3166877377467345264aede7e318f23541334c69956b9a54518",
+          "size": 482,
           "base_sha256": "df6458bed8845bab1d57333e9f89d1bcbd084267219ce3d28e57d8eb21441d16"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/UI_MainMenu.uexp.bsdiff",
-          "sha256": "a823f694eda23328a1fb23511cc1a35b8388d7f8563dbf261b4ee6fa2da2239e",
-          "size": 202,
+          "sha256": "0998fce688f9fd3b0e0ec874f87a88b0ef28aff26e859e0b8b4fb6e4af9aae01",
+          "size": 391,
           "base_sha256": "573b5c47451d338f44de30c996d6bfe79722443c83ae8466607d54ae0de14037"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uasset.bsdiff",
-          "sha256": "dbb0121ee001931935de13d96e650af7fdb403b80b8bbe0f80d32e31fc803abb",
-          "size": 188,
+          "sha256": "4dba2e0bc0c47b1156796729483825d5b0544c79d2bc21462435ac4432fc9190",
+          "size": 445,
           "base_sha256": "feca830743495929cd927b113e9093ef627f0e43d2d1680dbdd8ce05cff01909"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MainMenu/Widgets/UI_PrivateMatchCodeInterface.uexp.bsdiff",
-          "sha256": "5f1c6ecfeaecc9b3afecd1541eabbf5cbe9c307259ef9ca2b346128134f51ea0",
-          "size": 358,
+          "sha256": "161e5e04f323e338bc8c54bae1939eec8f4d136055eca281076237f115079573",
+          "size": 425,
           "base_sha256": "e4116effd724a92815829753624a5059f733b2f110528df9e62ad2399115eef6"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uasset.bsdiff",
-          "sha256": "26b154c5bf48f74bc22a06c8267076b1d21c4a4a94d31cdde6715b433bb53938",
-          "size": 2324,
+          "sha256": "4b8087a4946fcd89070a8758cd0bb0bb1f9b6d5de95de1cd227debd4e0663116",
+          "size": 2407,
           "base_sha256": "e668c7206130a01f42f63fbc857cdd3619f69c6d72748f7eb238e7e641cc2137"
         },
         {
           "path": "Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/private-match/files/Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.uexp.bsdiff",
-          "sha256": "cdf98045f1fab4dc74857b5b12511fa0d3ebc334cbf5c4b2fb9197e702b3d85a",
-          "size": 2286,
+          "sha256": "fd95ae25c7f1682fa9bd0f448a985d9443946b1e070545f4840f26ecc4e688b8",
+          "size": 2379,
           "base_sha256": "2fe2beb590412eb9fb40f2e3e0ae9bb9808f92499a202ef70e40a0f68f82c19a"
         }
       ]
