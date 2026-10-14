@@ -1,0 +1,50 @@
+// Diagnose HUD/Grabpack weg (Gamelog, Rich Presence "hd", gemeinsamer Verlauf aller hd-Marker dieses Rechners).
+// Fuer BP_IntroSequence und BP_SpawnSequence (auch BP_SpawnSequence_Monster, erbt). Nur lokale Variablen,
+// keine Klassen-Variable: die Monster-Unterklasse ist separat gekocht, ihr Layout darf sich nicht verschieben.
+// Eintrag: <Seq><a|e><Zeit>:<Pawn><lok>c<Crosshair>h<HuggyHUD>f<FP-Grabpack sichtbar>
+//   Seq: I = Intro, M = Spawn-Fahrt Monster, S = Spawn-Fahrt Specialist; a = PlaySequence, e = Fahrt fertig (vor dem Wiederherstellen), z = 1 s danach
+//   Pawn: Buchstabe nach "BP_Network" (C = Specialist, H = Huggy, M = Mommy, B = Boxy), lok = 1/0
+//   Crosshair/HuggyHUD: 0 = fehlt, 1 = existiert, 2 = im Viewport
+
+function PM_HdLog(Ev: string) {
+    local PM_E: string;
+    local PM_Pc: object<BP_MultiplayerPlayerController_C>;
+    local PM_P: object<Pawn>;
+    local PM_H: object<BP_NetworkHuggy_C>;
+    local PM_C: object<BP_NetworkCharacter_C>;
+    PM_Pc = cast<BP_MultiplayerPlayerController_C>(GameplayStatics::GetPlayerController(self, 0));
+    PM_P = PM_Pc.K2_GetPawn();
+    PM_E = "S";
+    if !KismetStringLibrary::Contains(KismetSystemLibrary::GetDisplayName(self), "Monster", false, false) goto nm;
+    PM_E = "M";
+nm:
+    if !KismetStringLibrary::Contains(KismetSystemLibrary::GetDisplayName(self), "Intro", false, false) goto ni;
+    PM_E = "I";
+ni:
+    PM_E = KismetStringLibrary::Concat_StrStr(KismetStringLibrary::Concat_StrStr(" ", PM_E), Ev);
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::FTrunc(GameplayStatics::GetTimeSeconds(self))));
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, ":");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Mid(KismetSystemLibrary::GetDisplayName(GameplayStatics::GetObjectClass(PM_P)), 10, 1));
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Conv_BoolToInt(PM_P.IsLocallyControlled())));
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, "c");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Add_IntInt(KismetMathLibrary::Conv_BoolToInt(KismetSystemLibrary::IsValid(PM_Pc.Crosshair)), KismetMathLibrary::Conv_BoolToInt(PM_Pc.Crosshair.IsInViewport()))));
+    PM_H = cast<BP_NetworkHuggy_C>(PM_P);
+    if !KismetSystemLibrary::IsValid(PM_H) goto nh;
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, "h");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Add_IntInt(KismetMathLibrary::Conv_BoolToInt(KismetSystemLibrary::IsValid(PM_H.HuggyHUD)), KismetMathLibrary::Conv_BoolToInt(PM_H.HuggyHUD.IsInViewport()))));
+nh:
+    PM_C = cast<BP_NetworkCharacter_C>(PM_P);
+    if !KismetSystemLibrary::IsValid(PM_C) goto fin;
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, "f");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Conv_BoolToInt(PM_C.FirstPersonGrabpackGunsL.IsVisible())));
+fin:
+    Friends::SetRichPresence("hd", KismetStringLibrary::Right(KismetStringLibrary::Concat_StrStr(Friends::GetFriendRichPresence(User::GetSteamID(), "hd"), PM_E), 240));
+}
+
+before PlaySequence { PM_HdLog("a"); }
+function PM_HdLate() { PM_HdLog("z"); }
+
+before TL_CameraSequence__FinishedFunc {
+    PM_HdLog("e");
+    KismetSystemLibrary::K2_SetTimer(self, "PM_HdLate", 1.0, false, 0.0, 0.0);
+}

@@ -1,0 +1,26 @@
+// Diagnose HUD/Grabpack weg (Rich Presence "hd", gemeinsamer Verlauf mit hudiag_seq/hudiag_character).
+// Eintrag: H<Ev><Zeit>:<lok>h<HuggyHUD>c<Crosshair>   (0 = fehlt, 1 = existiert, 2 = im Viewport)
+//   P = Client_OnPossessed (Server -> Besitzer), W = CreateHuggyWidget wird aufgerufen (Stand davor), X = EndPlay
+
+function PM_HdLog(Ev: string) {
+    local PM_E: string;
+    local PM_Pc: object<BP_MultiplayerPlayerController_C>;
+    PM_Pc = cast<BP_MultiplayerPlayerController_C>(GameplayStatics::GetPlayerController(self, 0));
+    PM_E = KismetStringLibrary::Concat_StrStr(" H", Ev);
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::FTrunc(GameplayStatics::GetTimeSeconds(self))));
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, ":");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Conv_BoolToInt(IsLocallyControlled())));
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, "h");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Add_IntInt(KismetMathLibrary::Conv_BoolToInt(KismetSystemLibrary::IsValid(HuggyHUD)), KismetMathLibrary::Conv_BoolToInt(HuggyHUD.IsInViewport()))));
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, "c");
+    PM_E = KismetStringLibrary::Concat_StrStr(PM_E, KismetStringLibrary::Conv_IntToString(KismetMathLibrary::Add_IntInt(KismetMathLibrary::Conv_BoolToInt(KismetSystemLibrary::IsValid(PM_Pc.Crosshair)), KismetMathLibrary::Conv_BoolToInt(PM_Pc.Crosshair.IsInViewport()))));
+    Friends::SetRichPresence("hd", KismetStringLibrary::Right(KismetStringLibrary::Concat_StrStr(Friends::GetFriendRichPresence(User::GetSteamID(), "hd"), PM_E), 240));
+}
+
+before Client_OnPossessed { PM_HdLog("P"); }
+before CreateHuggyWidget { PM_HdLog("W"); }
+before ReceiveEndPlay {
+    if !IsLocallyControlled() goto done;
+    PM_HdLog("X");
+done:
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uasset.bsdiff",
+    "sha256": "9e5931d9c5a72a3c2dd3f4cda46aba7b22ab736d90c71e401c606e94191a942f",
+    "payload_sha256": "3b96101a16b170f35bca32e7133ec2dd26b25f6381a20e4d97ae1829329b8dad",
+    "size": 1068,
+    "base_sha256": "3005594eba5c7a8c8c146235a33545be8d2b9113c69687a533cf2d26e985b27f"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_IntroSequence.uexp.bsdiff",
+    "sha256": "bcb1688b7f90b0954fa2f9e0d1992393b865ae804898acc3597b3d30904e0291",
+    "payload_sha256": "1466e01718f4ec047d62ed62394e2c17d77f521a37ded6879914735425608050",
+    "size": 908,
+    "base_sha256": "26b2068d383e119d5704bdd2ae5f42fc529120973c1485e0163695a3923bb445"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uasset.bsdiff",
+    "sha256": "bd0c2dba12ebf9120f7f1b9f7b995d65bc0ce3e7cc39d5cfe428b488b80d75d2",
+    "payload_sha256": "4d51fda97b4f8f76317e622d5e10feb4c41091b16961e3d2667b0493a0585b8f",
+    "size": 920,
+    "base_sha256": "25ea6df53a94a7ab6119a7dce2db684e47df8823f25e1af84b5243e9db1d4dd9"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Gameplay/Sequences/SpawnSequence/BP_SpawnSequence.uexp.bsdiff",
+    "sha256": "5a723cc279cf6ae9489b28e7607abdfc7ba08f10cd3fef28d877f2f223def37d",
+    "payload_sha256": "23303ecde41fde67899d58092589a3877821b1a76d498256f954cfa6c3faaa3a",
+    "size": 841,
+    "base_sha256": "ef89a7a1d66e052040422e74e91ca91de8288f1dde94b978db3f85954c7289d3"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset.bsdiff",
+    "sha256": "2cad96e8110630fbbcb454de1acf50ba6d0cbe2f53074eb9beee3b24a1213eef",
+    "payload_sha256": "e720a28f3343ae225d37e630f709c44c46f69ee05df0de50e4c646f7afecdbf2",
+    "size": 884,
+    "base_sha256": "f8f356095e11ca0963b30463f567d1bfb03c7b7b73901f76957f409d5cc8eb22"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp.bsdiff",
+    "sha256": "b390d14c147813bb4cd562d45161b37ea6d288c8b07620f40e088e9088322569",
+    "payload_sha256": "9e17662f89bcd360c200c2134a0ec0f4795363b519a4ce8e1ee9a2e6573cff21",
+    "size": 663,
+    "base_sha256": "4f3d114bf42c1ed3a044ae3b5db2d65665c45d6a7df1e755a411a097ce306854"
+  }
+]
