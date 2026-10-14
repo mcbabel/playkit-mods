@@ -711,12 +711,12 @@
     {
       "id": "hud-diagnostics",
       "name": "HUD Diagnostics",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "authors": [
         "MCbabel"
       ],
-      "summary": "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round.",
-      "description": "A diagnostic for a bug where the monster has no HUD and the specialist has no grabpack after the round starts.\nIt writes short entries to your Steam Rich Presence (key hd): when the intro and the spawn camera start and end, and whether the HUD is shown at that moment.\nIt does not change how the game plays and you can still play public matches with people without mods. Remove it again after the test.",
+      "summary": "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round, and tests a fix for a missing monster HUD.",
+      "description": "A diagnostic for a bug where the monster has no HUD and the specialist has no grabpack after the round starts.\nIt writes short entries to your Steam Rich Presence (key hd): when the intro and the spawn camera start and end, and whether the HUD is shown at that moment.\nTest fix: when you are the monster in a Private Match hosted by someone else, your monster HUD is created as soon as the game knows the monster is yours.\nIt does not change how the game plays otherwise and you can still play public matches with people without mods. Remove it again after the test.",
       "category": "other",
       "network": "safe",
       "game_builds": [
@@ -725,6 +725,12 @@
       "color": "#7A7F87",
       "homepage": null,
       "changelog": [
+        {
+          "version": "1.1.0",
+          "changes": [
+            "Test fix: the monster HUD is created when you are the monster in a Private Match hosted by someone else"
+          ]
+        },
         {
           "version": "1.0.0",
           "changes": [
@@ -763,18 +769,46 @@
           "base_sha256": "ef89a7a1d66e052040422e74e91ca91de8288f1dde94b978db3f85954c7289d3"
         },
         {
+          "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset.bsdiff",
+          "sha256": "eaa63bafdd2028d7b6ece322e157e03fcc243aa322514cef2b71380fe2fca3df",
+          "size": 485,
+          "base_sha256": "cabf7cb4b72e73e926086cdd831447885a15073a3cd65a695e4f8fade289eccf"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp.bsdiff",
+          "sha256": "c6c753837b87f621ab73a7c654e21714f14b5464db98b781f9da7a6c3335ed48",
+          "size": 414,
+          "base_sha256": "a12644488f56e0908f9d14dd9cc796a71bf2bc06d2facf020d894feaa17db7df"
+        },
+        {
           "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset.bsdiff",
-          "sha256": "2cad96e8110630fbbcb454de1acf50ba6d0cbe2f53074eb9beee3b24a1213eef",
-          "size": 884,
+          "sha256": "353a72a4432ec98f32521b09d75cc1dd3b378f4f53e174f58047d13eec01b418",
+          "size": 944,
           "base_sha256": "f8f356095e11ca0963b30463f567d1bfb03c7b7b73901f76957f409d5cc8eb22"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp.bsdiff",
-          "sha256": "b390d14c147813bb4cd562d45161b37ea6d288c8b07620f40e088e9088322569",
-          "size": 663,
+          "sha256": "e24342b8532a14594fbf25452ded60acb92f30797865e3f1ca00bd35a5413d93",
+          "size": 811,
           "base_sha256": "4f3d114bf42c1ed3a044ae3b5db2d65665c45d6a7df1e755a411a097ce306854"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset.bsdiff",
+          "sha256": "451bc4b5c4fc6e2f8e5fde8d22b6dda173e504d9ce332a4e2ef66d6200b6bdb5",
+          "size": 464,
+          "base_sha256": "d3d47eda9b4992845ab663cf55ab1d754f944785786fce8e7ec7ee79b76fef85"
+        },
+        {
+          "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp",
+          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp.bsdiff",
+          "sha256": "9988a7eeaf070b4e75a99e163b02dde6085dd28a78a71ae79a364f84a02bede7",
+          "size": 413,
+          "base_sha256": "d7d9a3e9a7077ea195f0efcf716d0d9e5af59b92287ff71f8a90974858392a35"
         }
       ]
     },
