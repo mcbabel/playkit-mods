@@ -1,16 +1,21 @@
 id = "hud-diagnostics"
 name = "HUD Diagnostics"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["MCbabel"]
-summary = "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round."
+summary = "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round, and tests a fix for a missing monster HUD."
 description = """
 A diagnostic for a bug where the monster has no HUD and the specialist has no grabpack after the round starts.
 It writes short entries to your Steam Rich Presence (key hd): when the intro and the spawn camera start and end, and whether the HUD is shown at that moment.
-It does not change how the game plays and you can still play public matches with people without mods. Remove it again after the test."""
+Test fix: when you are the monster in a Private Match hosted by someone else, your monster HUD is created as soon as the game knows the monster is yours.
+It does not change how the game plays otherwise and you can still play public matches with people without mods. Remove it again after the test."""
 category = "other"
 network = "safe"
 game_builds = ["12576441"]
 color = "#7A7F87"
+
+[[changelog]]
+version = "1.1.0"
+changes = ["Test fix: the monster HUD is created when you are the monster in a Private Match hosted by someone else"]
 
 [[changelog]]
 version = "1.0.0"

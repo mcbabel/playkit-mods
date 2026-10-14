@@ -1,0 +1,19 @@
+// pm-monhud (BP_NetworkMommy)
+// Bug: in a Private Match where a client is the monster, the monster HUD is never created. The game creates it in Owner_OnPossessed only when
+// MasterFunctionLibrary::IsLocallyControlledByPlayer is true, which also needs the pawn's PlayerState. On the owning client that
+// RPC arrives before the PlayerState has replicated, so the check fails once and is never repeated (vanilla never had a client monster at round start).
+// Fix: when Owner_OnPossessed arrives, check every 0.5 s on the owning client and create the HUD with the game's own CreateMommyWidget as soon as the game's check passes (local widgets only, no new RPC).
+
+function PM_MonHud() {
+    if !IsLocallyControlled() goto done;
+    if !KismetMathLibrary::Not_PreBool(KismetSystemLibrary::IsValid(MommyHUD)) goto stop;
+    if !MasterFunctionLibrary::IsLocallyControlledByPlayer(self) goto done;
+    CreateMommyWidget();
+stop:
+    KismetSystemLibrary::K2_ClearTimer(self, "PM_MonHud");
+done:
+}
+
+before Owner_OnPossessed {
+    KismetSystemLibrary::K2_SetTimer(self, "PM_MonHud", 0.5, true, 0.0, 0.0);
+}

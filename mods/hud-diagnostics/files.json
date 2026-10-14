@@ -32,19 +32,51 @@
     "base_sha256": "ef89a7a1d66e052040422e74e91ca91de8288f1dde94b978db3f85954c7289d3"
   },
   {
+    "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset.bsdiff",
+    "sha256": "eaa63bafdd2028d7b6ece322e157e03fcc243aa322514cef2b71380fe2fca3df",
+    "payload_sha256": "d600cda740d0859769147d32fe137665587b838d9926c59d71d0ead4b17adb41",
+    "size": 485,
+    "base_sha256": "cabf7cb4b72e73e926086cdd831447885a15073a3cd65a695e4f8fade289eccf"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp.bsdiff",
+    "sha256": "c6c753837b87f621ab73a7c654e21714f14b5464db98b781f9da7a6c3335ed48",
+    "payload_sha256": "a2985c35985452d430a65c04433ee3abcb617651f40b885a78aacabd9e5a022e",
+    "size": 414,
+    "base_sha256": "a12644488f56e0908f9d14dd9cc796a71bf2bc06d2facf020d894feaa17db7df"
+  },
+  {
     "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset",
     "payload": "files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset.bsdiff",
-    "sha256": "2cad96e8110630fbbcb454de1acf50ba6d0cbe2f53074eb9beee3b24a1213eef",
-    "payload_sha256": "e720a28f3343ae225d37e630f709c44c46f69ee05df0de50e4c646f7afecdbf2",
-    "size": 884,
+    "sha256": "353a72a4432ec98f32521b09d75cc1dd3b378f4f53e174f58047d13eec01b418",
+    "payload_sha256": "a28cca9dd82f0f84a66f9ac955de2ea1c6cb2fd87c093ed420c3aa40f55cc3fb",
+    "size": 944,
     "base_sha256": "f8f356095e11ca0963b30463f567d1bfb03c7b7b73901f76957f409d5cc8eb22"
   },
   {
     "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp",
     "payload": "files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp.bsdiff",
-    "sha256": "b390d14c147813bb4cd562d45161b37ea6d288c8b07620f40e088e9088322569",
-    "payload_sha256": "9e17662f89bcd360c200c2134a0ec0f4795363b519a4ce8e1ee9a2e6573cff21",
-    "size": 663,
+    "sha256": "e24342b8532a14594fbf25452ded60acb92f30797865e3f1ca00bd35a5413d93",
+    "payload_sha256": "b2896c6b878a9e6f6abe55896769bdb71fb85691d3850b3dda8da076b95d54b7",
+    "size": 811,
     "base_sha256": "4f3d114bf42c1ed3a044ae3b5db2d65665c45d6a7df1e755a411a097ce306854"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset",
+    "payload": "files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset.bsdiff",
+    "sha256": "451bc4b5c4fc6e2f8e5fde8d22b6dda173e504d9ce332a4e2ef66d6200b6bdb5",
+    "payload_sha256": "ef2c2ceddcdebe11bb2c9d9d55ccccf2ac88bcf9450af122d5ef09c83616a2b8",
+    "size": 464,
+    "base_sha256": "d3d47eda9b4992845ab663cf55ab1d754f944785786fce8e7ec7ee79b76fef85"
+  },
+  {
+    "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp",
+    "payload": "files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp.bsdiff",
+    "sha256": "9988a7eeaf070b4e75a99e163b02dde6085dd28a78a71ae79a364f84a02bede7",
+    "payload_sha256": "16594e0a3d5dd30281c785da65407117d5e577e525f948f7a69acf6bb8a04da4",
+    "size": 413,
+    "base_sha256": "d7d9a3e9a7077ea195f0efcf716d0d9e5af59b92287ff71f8a90974858392a35"
   }
 ]
