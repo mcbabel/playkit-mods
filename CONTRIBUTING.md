@@ -41,6 +41,8 @@ changes = ["First release"]
 
 Adding RPC functions or replicated variables to replicated blueprints breaks matchmaking with unmodded players. Such a mod must be `lobby`.
 
+Instead of a changed asset you can also ship a [Blueprint patch](#blueprint-patches-bps) (`UI_Foo.bps` next to where `UI_Foo.uasset` would be) or a [native mod](#native-mods-c) written in C++.
+
 ## 2. Pack it
 
 **In the app:** open **Submit a mod**, choose your folder, then press **Send as issue** and attach the zip.
@@ -59,6 +61,43 @@ This writes `mods/my-mod/` with `mod.toml`, `files.json` and the patches. Commit
 
 The `Validate` check runs on every pull request. A maintainer looks at what the mod changes and confirms the `network` value before merging. After the merge, `index.json` is rebuilt and the mod shows up in Playkit.
 
+## Blueprint patches (.bps)
+
+A `.bps` file is a Blueprint change written as text with [bpscript](https://github.com/MCbabel/playkit/tree/main/crates/bpscript): new variables, functions and events, and hooks that run before or after existing functions. Put it where the asset would be, with `.bps` instead of `.uasset`:
+
+```
+my-mod/
+├── mod.toml
+└── Playtime_Multiplayer/Content/Interface/MatchMaking/UI_MatchMakingScreen.bps
+```
+
+```
+before Construct ubergraph {
+    PrintString(self, "hello", true, true, LinearColor{1.0, 0.0, 0.0, 1.0}, 2.0);
+}
+```
+
+Packing applies the patch to the original asset, so the mod is stored like any other mod and is combined with other mods that change the same asset. The `.bps` file is kept in `mods/my-mod/source/` so reviewers can read what it does.
+
+Short names like `PrintString` are looked up in the game's reflection database. The Playkit loader writes it when you create an empty file `playkit-sdk.request` next to the game executable while the game runs (see the [loader README](https://github.com/MCbabel/playkit/tree/main/crates/loader#sdk-c-headers-of-the-game)). Packing finds it in the game folder on its own; `playkit-pack pack --reflection <file>` uses another one.
+
+## Native mods (C++)
+
+A native mod is a DLL that the Playkit loader runs inside the game. It can hook any Blueprint function and call into the engine; see the [loader README](https://github.com/MCbabel/playkit/tree/main/crates/loader) for the API and the SDK headers.
+
+```
+my-mod/
+├── mod.toml
+├── source/                    your source code, required
+│   └── mod.cpp
+└── Playtime_Multiplayer/Binaries/Win64/playkit-mods/my-mod.dll
+```
+
+- Exactly one DLL, named after the mod id, in `Binaries/Win64/playkit-mods/`.
+- The complete source code goes in `source/`, together with how to build it. Built files (`.dll`, `.exe`, `.obj`, ...) are not accepted there.
+- Playkit marks native mods in the list and asks before installing one. They need the Playkit loader 0.3.0 or newer.
+- Reviewers read the source before merging. Mods without readable source, or with code that does more than the description says, are rejected.
+
 ## Shared parts (library mods)
 
 If several mods need the same groundwork, put it in its own mod with `category = "library"` and list its id in `requires` of every mod that needs it. Playkit installs libraries automatically, hides them from the mod list, and removes them again when no installed mod needs them. Only use `requires` for real technical needs, never to bundle unrelated features.
@@ -69,6 +108,6 @@ You do not need to coordinate with other authors. If two mods change the same as
 
 ## Rules
 
-- Only files below `Playtime_Multiplayer/Content`. No programs, scripts or DLLs.
+- Only files below `Playtime_Multiplayer/Content`, `.bps` patches, and for native mods one DLL in `Binaries/Win64/playkit-mods` with its full source code. No other programs or scripts.
 - No cheats that give an advantage in public matches.
 - No content you are not allowed to share.

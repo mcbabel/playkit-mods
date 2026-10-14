@@ -45,3 +45,4 @@ body:
       options:
         - label: I made this mod or have permission to share it, and it contains no cheats for public matches.
           required: true
+        - label: If it is a native mod (C++ DLL), its complete source code is in the zip.

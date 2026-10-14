@@ -27,3 +27,13 @@ jobs:
             exit 1
           fi
       - run: playkit-pack index . --base-url "https://raw.githubusercontent.com/${{ github.repository }}/main" --out "$RUNNER_TEMP/index.json"
+      - name: Point reviewers at native code
+        env:
+          BASE: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          for id in $(git diff --name-only "origin/$BASE...HEAD" -- mods | cut -d/ -f2 | sort -u); do
+            if [ -f "mods/$id/files.json" ] && grep -q '/Binaries/Win64/playkit-mods/' "mods/$id/files.json"; then
+              echo "::warning title=Native mod::$id runs its own code. Read mods/$id/source before merging."
+            fi
+          done
