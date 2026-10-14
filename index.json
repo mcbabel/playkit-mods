@@ -13,12 +13,12 @@
     {
       "id": "bug-fixes",
       "name": "Bug Fixes",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "authors": [
         "MCbabel"
       ],
-      "summary": "Fixes 36 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods.",
-      "description": "Fixes for bugs found by reading the game's own Blueprint code. Each fix only changes what you see and do on your own PC.\nMenus: hidden Clear button on the monster sabotage page (the game cannot save an empty sabotage), new items show up in Customize without a restart, preset names are compared exactly, the shop no longer keeps a stale page, failed Toy Box purchases clear the loading overlay, a Playcoin purchase is completed once, the intro cannot hang, no error toast every minute from a hidden old menu.\nLobby and matches: joining a lobby whose start countdown already runs no longer shows a fresh 30 seconds, notices like Host Left Lobby are visible again after a map change, the loading screen shows the right text, one results screen with one countdown, the monster player list keeps its monster style, the sabotage icon no longer sticks on ?, B no longer changes your queue preference during a match.\nPlayers: pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, repeated emotes play fully, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.\nPuzzles: the Reflex ticking stops on a hit, hand panel bars no longer flash empty when you let go, train call panels get their outline, the claw shows the right hand, Genius perk mistakes are counted correctly.\nWhen you host (the monster in public matches) a few more fixes apply for the whole round.",
+      "summary": "Fixes 35 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods.",
+      "description": "Fixes for bugs found by reading the game's own Blueprint code. Each fix only changes what you see and do on your own PC.\nMenus: hidden Clear button on the monster sabotage page (the game cannot save an empty sabotage), new items show up in Customize without a restart, preset names are compared exactly, the shop no longer keeps a stale page, failed Toy Box purchases clear the loading overlay, a Playcoin purchase is completed once, the intro cannot hang, no error toast every minute from a hidden old menu.\nLobby and matches: joining a lobby whose start countdown already runs no longer shows a fresh 30 seconds, notices like Host Left Lobby are visible again after a map change, the loading screen shows the right text, one results screen with one countdown, the monster player list keeps its monster style, the sabotage icon no longer sticks on ?, B no longer changes your queue preference during a match.\nPlayers: pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.\nPuzzles: the Reflex ticking stops on a hit, hand panel bars no longer flash empty when you let go, train call panels get their outline, the claw shows the right hand, Genius perk mistakes are counted correctly.\nWhen you host (the monster in public matches) a few more fixes apply for the whole round.",
       "category": "fixes",
       "network": "safe",
       "game_builds": [
@@ -27,6 +27,12 @@
       "color": "#4F9D69",
       "homepage": null,
       "changelog": [
+        {
+          "version": "1.0.1",
+          "changes": [
+            "Removed the emote change: starting the same emote again cut the repeated animation short. Emotes behave like the original again"
+          ]
+        },
         {
           "version": "1.0.0",
           "changes": [
@@ -399,20 +405,6 @@
           "sha256": "a7d8fa20bb5518195fe1b992819a10c3545f60d180cce91dd11a65fb37fec231",
           "size": 703,
           "base_sha256": "e7e612c027d2fc945de9a03bacc048e1d54c6c0dcb7cc8719105f99bce2213cc"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uasset",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uasset.bsdiff",
-          "sha256": "638a7730c2b8b830080b98f16d75606bca5049e9c1e484be8db9d8f7479aacac",
-          "size": 449,
-          "base_sha256": "09586bfd8cdf0840be57fd4f5adcbee5f81ba0bb38dcae380ef0450c2b4625dc"
-        },
-        {
-          "path": "Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uexp",
-          "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/World/Geometry/Characters/PlayerCharacter/Animations/ABP_NetworkPlayer.uexp.bsdiff",
-          "sha256": "6e9dece701a84145f77055ee1226e8f5ae6c60f1907b4fb8ae593f13c757f4f5",
-          "size": 429,
-          "base_sha256": "ea499d6c009aa19b93101802ac757266fe56f03a9ff3dfe2033949a85bda10ec"
         }
       ]
     },
