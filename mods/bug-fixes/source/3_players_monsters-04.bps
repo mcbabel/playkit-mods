@@ -1,0 +1,73 @@
+// 3_players_monsters-04
+// Bug: UpdateCosmeticsFromPreset looks up the Pants and Grabpack tint with the color index as item ID (copy-paste error), so those slots get the color of an unrelated item or black.
+// Fix: the same function body, but the two GetCosmeticColorFromArray calls pass `Current Preset`.Pants and `Current Preset`.Grabpack as the item ID like every other slot (local mesh coloring only).
+
+replace UpdateCosmeticsFromPreset {
+    push L1972;
+    `Current Preset` = Preset;
+    push L1957;
+    push L1658;
+    push L1350;
+    push L695;
+    push L538;
+    push L381;
+    push L224;
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(`Current Preset`.Hat, `Current Preset`.HatColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor_6);
+    Default__CosmeticCoreLibrary_C.UpdateGenerifiedCosmetic(`Current Preset`.Hat, OutfitHat, CallFunc_GetCosmeticColorFromArray_LinearColor_6, false, self);
+    pop;
+L224:
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(`Current Preset`.Shirt, `Current Preset`.ShirtColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor_5);
+    Default__CosmeticCoreLibrary_C.UpdateGenerifiedCosmetic(`Current Preset`.Shirt, OutfitShirt, CallFunc_GetCosmeticColorFromArray_LinearColor_5, false, self);
+    pop;
+L381:
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(`Current Preset`.Pants, `Current Preset`.PantsColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor_4);
+    Default__CosmeticCoreLibrary_C.UpdateGenerifiedCosmetic(`Current Preset`.Pants, OutfitPants, CallFunc_GetCosmeticColorFromArray_LinearColor_4, false, self);
+    pop;
+L538:
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(`Current Preset`.Shoes, `Current Preset`.ShoesColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor_3);
+    Default__CosmeticCoreLibrary_C.UpdateGenerifiedCosmetic(`Current Preset`.Shoes, OutfitShoes, CallFunc_GetCosmeticColorFromArray_LinearColor_3, false, self);
+    pop;
+L695:
+    Temp_int_Loop_Counter_Variable = 0;
+    Temp_int_Array_Index_Variable = 0;
+L741:
+    K2Node_MakeArray_Array = [OutfitShirt, OutfitHat, OutfitPants, OutfitShoes];
+    CallFunc_Array_Length_ReturnValue = Default__KismetArrayLibrary.Array_Length(K2Node_MakeArray_Array);
+    CallFunc_Less_IntInt_ReturnValue = Less_IntInt(Temp_int_Loop_Counter_Variable, CallFunc_Array_Length_ReturnValue);
+    pop if !CallFunc_Less_IntInt_ReturnValue;
+    Temp_int_Array_Index_Variable = Temp_int_Loop_Counter_Variable;
+    push L1276;
+    K2Node_MakeArray_Array = [OutfitShirt, OutfitHat, OutfitPants, OutfitShoes];
+    Default__KismetArrayLibrary.Array_Get(K2Node_MakeArray_Array, Temp_int_Array_Index_Variable, CallFunc_Array_Get_Item);
+    K2Node_DynamicCast_AsBP_Mesh_Container_Outfit_Cosmetic = cast<BP_MeshContainer_OutfitCosmetic_C>(CallFunc_Array_Get_Item.ChildActor);
+    K2Node_DynamicCast_bSuccess_2 = primcast<ObjectToBool>(K2Node_DynamicCast_AsBP_Mesh_Container_Outfit_Cosmetic);
+    pop if !K2Node_DynamicCast_bSuccess_2;
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(Preset.Skin, Preset.SkinColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor);
+    K2Node_DynamicCast_AsBP_Mesh_Container_Outfit_Cosmetic.SetSkinFromID(Preset.Skin, CallFunc_GetCosmeticColorFromArray_LinearColor);
+    pop;
+L1276:
+    CallFunc_Add_IntInt_ReturnValue = Add_IntInt(Temp_int_Loop_Counter_Variable, 1);
+    Temp_int_Loop_Counter_Variable = CallFunc_Add_IntInt_ReturnValue;
+    goto L741;
+L1350:
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(`Current Preset`.Face, `Current Preset`.FaceColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor_2);
+    Default__CosmeticCoreLibrary_C.UpdateGenerifiedCosmetic(`Current Preset`.Face, OutfitMask, CallFunc_GetCosmeticColorFromArray_LinearColor_2, false, self);
+    K2Node_DynamicCast_AsBP_Mesh_Container_Mask_Cosmetic = cast<BP_MeshContainer_MaskCosmetic_C>(OutfitMask.ChildActor);
+    K2Node_DynamicCast_bSuccess_1 = primcast<ObjectToBool>(K2Node_DynamicCast_AsBP_Mesh_Container_Mask_Cosmetic);
+    pop if !K2Node_DynamicCast_bSuccess_1;
+    K2Node_DynamicCast_AsBP_Mesh_Container_Mask_Cosmetic.SetVisibilityBasedOnHat(`Current Preset`.Hat);
+    pop;
+L1658:
+    Default__CosmeticCoreLibrary_C.GetCosmeticColorFromArray(`Current Preset`.Grabpack, `Current Preset`.GrabpackColor, self, CallFunc_GetCosmeticColorFromArray_LinearColor_1);
+    Default__CosmeticCoreLibrary_C.UpdateGenerifiedCosmetic(`Current Preset`.Grabpack, OutfitGrabpack, CallFunc_GetCosmeticColorFromArray_LinearColor_1, false, self);
+    K2Node_DynamicCast_AsBP_Mesh_Container_Grabpack_Cosmetic = cast<BP_MeshContainer_GrabpackCosmetic_C>(OutfitGrabpack.ChildActor);
+    K2Node_DynamicCast_bSuccess = primcast<ObjectToBool>(K2Node_DynamicCast_AsBP_Mesh_Container_Grabpack_Cosmetic);
+    pop if !K2Node_DynamicCast_bSuccess;
+    K2Node_DynamicCast_AsBP_Mesh_Container_Grabpack_Cosmetic.UpdateHandCosmetics(`Current Preset`);
+    pop;
+L1957:
+    SetNetworkCharacterOnContainers();
+    pop;
+L1972:
+    return;
+}

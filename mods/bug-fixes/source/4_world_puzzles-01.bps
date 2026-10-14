@@ -1,0 +1,14 @@
+// 4_world_puzzles-01
+// Bug: on clients the Reflex ticking sound and HighlightTimer keep running after a tile is hit, because TransitionState(2/3) returns to state 1 in the same call and OnRep_State never fires there.
+// Fix: the reliable multicast `Event UpdateSelection` (sent after every hit or timeout) now also clears HighlightTimer and stops the ticking locally, and PlayTickingSound stops a still playing previous ticking sound before it spawns a new one.
+
+before `Event UpdateSelection` {
+    K2_ClearAndInvalidateTimerHandle(self, HighlightTimer);
+    PlayTickingSound(false);
+}
+
+before PlayTickingSound ubergraph {
+    if !KismetSystemLibrary::IsValid(CallFunc_SpawnSoundAtLocation_ReturnValue) goto done;
+    CallFunc_SpawnSoundAtLocation_ReturnValue.Stop();
+done:
+}

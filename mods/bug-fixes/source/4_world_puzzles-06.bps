@@ -1,0 +1,10 @@
+// 4_world_puzzles-06
+// Bug: the hand-detach branch (L764) reverses TL_Progress without a HasAuthority check, so on clients the never advanced timeline writes Percentage = 0 locally and the charge bar flickers to empty until the next server update.
+// Fix: on clients the detach event (AttachmentStateChange 1) returns before the ubergraph runs, like the attach branch already does through its HasAuthority gate; clients only follow the replicated Percentage.
+
+before BndEvt__BP_TrainCall_BPC_HandMagnet_K2Node_ComponentBoundEvent_0_AttachmentStateChangeSignature__DelegateSignature {
+    if !EqualEqual_ByteByte(AttachmentStateChange, 1u8) goto done;
+    if !Not_PreBool(HasAuthority()) goto done;
+    return;
+done:
+}

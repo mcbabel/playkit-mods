@@ -1,0 +1,16 @@
+// 3_players_monsters-09
+// Bug: the Run press handler only blocks sprinting when the survivor is jumpscared AND downed (BooleanAND instead of OR), and a survivor who is downed while holding Run keeps WantsToRun, so downed/crawling players use sprint footstep volume, attenuation and the sprint camera arm.
+// Fix: the Run press is ignored while jumpscared OR downed, and the owning client stops running (existing ToggleRun(false)) when it becomes downed; the Run release handler is left as it is so stopping is always possible.
+
+before InpActEvt_Run_K2Node_InputActionEvent_8 {
+    if !BooleanOR(`Is Jumpscare Active`, PlayerNeedsRevived) goto done;
+    return;
+done:
+}
+
+before BP_OnRep_PlayerNeedsRevived {
+    if !PlayerNeedsRevived goto done;
+    if !IsLocallyControlled() goto done;
+    ToggleRun(false);
+done:
+}

@@ -1,0 +1,10 @@
+// 4_world_puzzles-08
+// Bug: the 5 s auto-cooldown Delay started when the close animation finishes (L568 -> L15) still calls `Activate Grapple` when the handle was sabotaged (No Escape) in the meantime, so the handle opens during the sabotage.
+// Fix: `Activate Grapple` returns early while the handle is sabotaged (bGrappleSabotaged and UsesAutomaticCooldown false); the sabotage end (L30) sets UsesAutomaticCooldown back to true before it activates, so it still works.
+
+before `Activate Grapple` {
+    if !bGrappleSabotaged goto done;
+    if !Not_PreBool(UsesAutomaticCooldown) goto done;
+    return;
+done:
+}

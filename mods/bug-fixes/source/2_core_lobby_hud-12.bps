@@ -1,0 +1,16 @@
+// 2_core_lobby_hud-12
+// Bug: the raw B key event toggles "wants to be monster" in the GameInstance and sends Server_RecieveQueueData at any time, also during a running match where there is no lobby UI and no feedback.
+// Fix: ignore the B key unless the match has not started yet (the controller's own InLobby? function) and the walkable lobby UI exists.
+
+before InpActEvt_B_K2Node_InputKeyEvent_0 {
+    local PM_BInLobby: bool;
+    local PM_BHasUI: bool;
+    `InLobby?`(PM_BInLobby);
+    if !PM_BInLobby goto ignore;
+    PM_BHasUI = KismetSystemLibrary::IsValid(LobbyUI);
+    if !PM_BHasUI goto ignore;
+    goto handle;
+ignore:
+    return;
+handle:
+}

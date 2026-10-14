@@ -1,0 +1,21 @@
+// 3_players_monsters-03
+// Bug: when the local survivor is destroyed (killed) while the Living Nightmare fog is active, the fog material stays in MainPostProcessVolume forever, because End Living Nightmare bails out on IsLocallyControlled() at EndPlay and the fog timeline/delay die with the actor.
+// Fix: at ReceiveEndPlay, if this machine created the fog material (the ubergraph still holds it), set its Opacity to 0 and remove its blendable from the post process volumes it may have been added to (local post process only).
+
+before ReceiveEndPlay ubergraph {
+    local PM_FogIdx: int;
+    local PM_FogPPV: object<PostProcessVolume>;
+    if !KismetSystemLibrary::IsValid(K2Node_DynamicCast_AsMaterial_Instance_Dynamic) goto done;
+    K2Node_DynamicCast_AsMaterial_Instance_Dynamic.MaterialInstanceDynamic::SetScalarParameterValue(n"Opacity", 0.0);
+    K2Node_MakeStruct_WeightedBlendable.Weight = 1.0;
+    K2Node_MakeStruct_WeightedBlendable.Object = K2Node_DynamicCast_AsMaterial_Instance_Dynamic;
+    PM_FogIdx = 0;
+next:
+    if !Less_IntInt(PM_FogIdx, Default__KismetArrayLibrary.Array_Length(CallFunc_GetAllActorsOfClass_OutActors_3)) goto done;
+    Default__KismetArrayLibrary.Array_Get(CallFunc_GetAllActorsOfClass_OutActors_3, PM_FogIdx, PM_FogPPV);
+    PM_FogIdx = Add_IntInt(PM_FogIdx, 1);
+    if !KismetSystemLibrary::IsValid(PM_FogPPV) goto next;
+    Default__KismetArrayLibrary.Array_RemoveItem(PM_FogPPV.Settings.WeightedBlendables.Array, K2Node_MakeStruct_WeightedBlendable);
+    goto next;
+done:
+}

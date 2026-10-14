@@ -1,0 +1,77 @@
+// user-01 (client part, UI_MatchmakingStatus; host part: user-01_gi.bps on MultiplayerGameInstance)
+// Bug: every client starts its own 30 s countdown when it first sees QueueStatus "Starting", so players who join mid-countdown see 30 again, and StartTime is never reset, so a second countdown in the same lobby continues from the old value.
+// Fix (in DecrementTimer, so it does not collide with mods that change UpdateQueueStatus): a new countdown (other lobby, counter ran out, or no tick for 1.5 s) starts again at 30; when the host published "PM_StartAt" (Steam server time) the counter shows 30 minus the elapsed time; without it, a player who joined with more members than needed to start sees "Match Starting" without a number. The counter never goes below 0.
+
+var PM_CdLobby: struct<SteamID, 8>;
+var PM_CdLastTick: float;
+var PM_CdHidden: bool;
+var PM_CdLabel: text;
+var PM_CdHaveLabel: bool;
+var PM_CdTimerVis: byte;
+
+// Show = true: countdown number visible with the original label; false: number collapsed, label "Match Starting".
+function PM_CdShowNumber(Show: bool) {
+    local PM_Panel: object<PanelWidget>;
+    local PM_Label: object<TextBlock>;
+    local PM_Ok: bool;
+    PM_Panel = cast<PanelWidget>(Status_Switcher.GetWidgetAtIndex(2));
+    PM_Ok = KismetSystemLibrary::IsValid(PM_Panel);
+    if !PM_Ok goto nolabel;
+    PM_Label = cast<TextBlock>(PM_Panel.GetChildAt(0));
+nolabel:
+    PM_Ok = KismetSystemLibrary::IsValid(PM_Label);
+    if !Show goto hide;
+    if !PM_CdHidden goto done;
+    PM_CdHidden = false;
+    Timer.SetVisibility(PM_CdTimerVis);
+    if !PM_CdHaveLabel goto done;
+    if !PM_Ok goto done;
+    PM_Label.SetText(PM_CdLabel);
+    goto done;
+hide:
+    if !Not_PreBool(PM_CdHidden) goto done;
+    PM_CdHidden = true;
+    PM_CdTimerVis = Timer.GetVisibility();
+    Timer.SetVisibility(1u8);
+    if !PM_Ok goto done;
+    if !Not_PreBool(PM_CdHaveLabel) goto settext;
+    PM_CdLabel = PM_Label.GetText();
+    PM_CdHaveLabel = true;
+settext:
+    PM_Label.SetText(nsloctext("", "2D1E5F2042B5B36663A48D85A24EBD5F", "Match Starting"));
+done:
+}
+
+before DecrementTimer {
+    local PM_Lobby: struct<SteamID, 8>;
+    local PM_LobbyOk: bool;
+    local PM_StartAtStr: string;
+    local PM_Now: int;
+    local PM_Elapsed: int;
+    local PM_Members: int;
+    local PM_Tick: float;
+    Default__PlaytimeFunctionLibrary_C.GetLobby(self, PM_Lobby, PM_LobbyOk);
+    if !PM_LobbyOk goto done;
+    PM_Tick = GameplayStatics::GetRealTimeSeconds(self);
+    if !Not_PreBool(SteamUtilities::NotEqual(PM_Lobby, PM_CdLobby)) goto fresh;
+    if !Greater_IntInt(StartTime, 0) goto fresh;
+    if !Greater_FloatFloat(Subtract_FloatFloat(PM_Tick, PM_CdLastTick), 1.5) goto sync;
+fresh:
+    // A countdown begins from this client's point of view. DecrementTimer takes one second off.
+    PM_CdLobby = PM_Lobby;
+    StartTime = 31;
+    PM_Members = GetNumLobbyMembers(PM_Lobby);
+    PM_CdShowNumber(Not_PreBool(Greater_IntInt(PM_Members, cast<MultiplayerGameInstance_C>(GetGameInstance(self)).MinRequiredPlayers)));
+sync:
+    PM_CdLastTick = PM_Tick;
+    PM_StartAtStr = GetLobbyData(PM_Lobby, "PM_StartAt");
+    if !NotEqual_StrStr(PM_StartAtStr, "") goto done;
+    PM_Now = Utils::GetServerRealTime();
+    if !Greater_IntInt(PM_Now, 0) goto done;
+    PM_Elapsed = Subtract_IntInt(PM_Now, Conv_StringToInt(PM_StartAtStr));
+    // A value from an earlier countdown is at least 35 s old; ignore it.
+    if !InRange_IntInt(PM_Elapsed, -5, 32, true, true) goto done;
+    StartTime = Add_IntInt(Clamp(Subtract_IntInt(30, PM_Elapsed), 0, 30), 1);
+    PM_CdShowNumber(true);
+done:
+}

@@ -1,0 +1,21 @@
+// 2_core_lobby_hud-09
+// Bug: DisplayLoadingScreen only passes the message to the loading screen when it creates the widget, so a reused loading screen keeps showing the first message of the session.
+// Fix: when the loading screen already exists, store the new message on it and update its message text right away (an empty message clears it via the widget's own ClearLoadingMessage).
+
+before DisplayLoadingScreen {
+    local PM_LsValid: bool;
+    local PM_Ls: object<UI_LoadingScreen_C>;
+    PM_LsValid = KismetSystemLibrary::IsValid(LoadingScreen);
+    if !PM_LsValid goto done;
+    PM_Ls = cast<UI_LoadingScreen_C>(LoadingScreen);
+    PM_LsValid = KismetSystemLibrary::IsValid(PM_Ls);
+    if !PM_LsValid goto done;
+    PM_Ls.LoadingMessage = Message;
+    if !IsEmpty(Message) goto settext;
+    PM_Ls.ClearLoadingMessage();
+    goto done;
+settext:
+    PM_Ls.T_LoadingMessage.SetText(Conv_StringToText(Message));
+    PM_Ls.T_LoadingMessage.SetVisibility(0u8);
+done:
+}

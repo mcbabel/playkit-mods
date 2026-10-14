@@ -1,0 +1,22 @@
+// 1_menus-05
+// Bug: every live UI_BuyPlaycoins instance (Store page, Toy Box popups, coins-only popups) is bound to the GameInstance micro-transaction callback, so all of them finalize the same order and pop a rewards widget, not only the one that started the purchase.
+// Fix: a per-instance flag is set when this instance starts a purchase (Run) and cleared on InitFail or once it has taken the authorization callback; the callback is ignored by instances whose flag is not set.
+
+var PM_OwnsTxn: bool;
+
+before Run {
+    PM_OwnsTxn = true;
+}
+
+after InitFail {
+    PM_OwnsTxn = false;
+}
+
+before MicroTransactionAuthorized {
+    if !PM_OwnsTxn goto notmine;
+    PM_OwnsTxn = false;
+    goto mine;
+notmine:
+    return;
+mine:
+}

@@ -1,0 +1,30 @@
+// 3_players_monsters-05
+// Bug: every grabpack hand launch (BP_PseudoSpawn) calls SetStyle, which runs UpdateGenerifiedCosmetic and so SetChildActorClass (destroy + respawn of the hand cosmetic child actor), blocking asset loads and new dynamic materials on every machine, although the hand cosmetic of a player does not change.
+// Fix: SetStyle remembers the applied hand cosmetic ID and color index in new non-replicated class variables and returns early when they are unchanged and the hand cosmetic child actor still exists (local visuals only).
+
+var PM_StyleSet: bool;
+var PM_StyleID: int;
+var PM_StyleColor: int;
+
+before SetStyle {
+    local PM_Char: object<BP_NetworkCharacter_C>;
+    local PM_Cos: struct<PresetSlot>;
+    local PM_ID: int;
+    local PM_Col: int;
+    PM_Char = cast<BP_NetworkCharacter_C>(GetOwner());
+    if !KismetSystemLibrary::IsValid(PM_Char) goto done;
+    PM_Cos = PM_Char.GetCosmetics();
+    PM_ID = switch(Limb) {0u8 => PM_Cos.LeftHand, 1u8 => PM_Cos.RightHand, _ => K2Node_Select_Default};
+    PM_Col = switch(Limb) {0u8 => PM_Cos.LeftHandColor, 1u8 => PM_Cos.RightHandColor, _ => K2Node_Select_Default_1};
+    if !PM_StyleSet goto apply;
+    if !EqualEqual_IntInt(PM_ID, PM_StyleID) goto apply;
+    if !EqualEqual_IntInt(PM_Col, PM_StyleColor) goto apply;
+    if !KismetSystemLibrary::IsValid(BP_MeshContainer_HandCosmetic.ChildActor) goto apply;
+    if !KismetSystemLibrary::IsValid(`Hand Mesh Container`) goto apply;
+    return;
+apply:
+    PM_StyleSet = true;
+    PM_StyleID = PM_ID;
+    PM_StyleColor = PM_Col;
+done:
+}

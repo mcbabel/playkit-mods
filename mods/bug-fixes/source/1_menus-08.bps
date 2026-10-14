@@ -1,0 +1,25 @@
+// 1_menus-08
+// Bug: opening the Shop again (Playcoins "+" while a bundle or featured item page is shown) does not reset the bundle/featured state, so the Featured/Characters/Playcoins nav tabs stay hidden and ViewingBundle stays true until Back is pressed.
+// Fix: before OpenStore, if a bundle or featured item page was being viewed, run the same reset as the Back button (catalog tabs and character switcher visible, ViewingBundle and ViewingFeaturedItem false, nav buttons visible).
+
+before OpenStore {
+    local PM_I: int;
+    local PM_Tab: object<UI_CosmeticCatalogTab_C>;
+    if !BooleanOR(UI_CharacterStore.ViewingBundle, UI_CharacterStore.ViewingFeaturedItem) goto done;
+    PM_I = 0;
+lp:
+    if !Less_IntInt(PM_I, Default__KismetArrayLibrary.Array_Length(UI_CharacterStore.UI_CosmeticCatalog.TabArray)) goto tabsdone;
+    Default__KismetArrayLibrary.Array_Get(UI_CharacterStore.UI_CosmeticCatalog.TabArray, PM_I, PM_Tab);
+    PM_Tab.SetVisibility(0u8);
+    PM_I = Add_IntInt(PM_I, 1);
+    goto lp;
+tabsdone:
+    UI_CharacterStore.CharacterSwitcher.SetVisibility(0u8);
+    UI_CharacterStore.ViewingBundle = false;
+    UI_CharacterStore.ViewingFeaturedItem = false;
+    FeaturedButton.SetVisibility(0u8);
+    PlayCoinsButton.SetVisibility(0u8);
+    if !Not_PreBool(UI_CharacterStore.UI_CosmeticCatalog.NoStoreCatalog) goto done;
+    CharactersButton.SetVisibility(0u8);
+done:
+}

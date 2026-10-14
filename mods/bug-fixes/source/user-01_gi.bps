@@ -1,0 +1,11 @@
+// user-01 (host part, MultiplayerGameInstance)
+// Bug: the host only publishes QueueStatus "Starting" in the Steam lobby data, so every client starts its own 30 s countdown when it first sees it and late joiners count from 30 again.
+// Fix: right before ReadyToCountdown switches the lobby to "Starting" (same conditions), publish the Steam server time as lobby data "PM_StartAt" so clients can compute the remaining time.
+
+before ReadyToCountdown {
+    local PM_StartAtSet: bool;
+    if !NotEqual_ByteByte(QueueType, 0u8) goto done;
+    if !CanStartMatch() goto done;
+    PM_StartAtSet = SetLobbyData(CurrentLobby, "PM_StartAt", Conv_IntToString(Utils::GetServerRealTime()));
+done:
+}

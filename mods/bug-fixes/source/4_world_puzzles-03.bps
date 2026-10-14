@@ -1,0 +1,22 @@
+// 4_world_puzzles-03
+// Bug: Select runs on every machine, but the Genius perk counter Mistakes is only reset on the server (wrong-tile branch behind HasAuthority and ToIdle), so clients judge later forgiven mistakes as failures.
+// Fix: clients also reset Mistakes when Select took the wrong-tile failure branch, and when a replicated state change shows the puzzle is no longer in progress (server ToIdle).
+
+after Select {
+    // wrong-tile failure branch L1738: checks passed, tile not in the target pattern, mistake not forgiven
+    if !CallFunc_BooleanAND_ReturnValue_4 goto done;
+    if !Not_PreBool(CallFunc_Array_Contains_ReturnValue_1) goto done;
+    if !Not_PreBool(CallFunc_BooleanAND_ReturnValue_2) goto done;
+    if !Not_PreBool(HasAuthority()) goto done;
+    Mistakes = 0;
+done:
+}
+
+after OnRep_State_Implementation {
+    local PM_InProgress: bool;
+    if !Not_PreBool(HasAuthority()) goto done;
+    IsInProgress(PM_InProgress);
+    if !Not_PreBool(PM_InProgress) goto done;
+    Mistakes = 0;
+done:
+}

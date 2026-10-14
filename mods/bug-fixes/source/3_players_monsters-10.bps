@@ -1,0 +1,18 @@
+// 3_players_monsters-10
+// Bug: after TriggerChase (monster pulls a survivor out of a locker) the chase music starts but ActivateMonsterAmbientMusic is never called (the MML_ timer events are empty), so the chase track loops for the rest of the match, Boxy's music box stays off and later chases never restart.
+// Fix: when the chase music is active after ActivateMonsterChaseMusic, a new local looping timer (10 s) calls the existing ActivateMonsterAmbientMusic, which switches back to ambient once no survivor overlaps the RedZone; the timer stops when the chase music has ended (local music only, runs where TriggerChase runs: the host monster).
+
+function PM_ChaseCheck() {
+    if !isChaseMusicActive goto stop;
+    ActivateMonsterAmbientMusic();
+    if !Not_PreBool(isChaseMusicActive) goto done;
+stop:
+    K2_ClearTimer(self, "PM_ChaseCheck");
+done:
+}
+
+after ActivateMonsterChaseMusic {
+    if !isChaseMusicActive goto done;
+    K2_SetTimer(self, "PM_ChaseCheck", 10.0, true, 0.0, 0.0);
+done:
+}

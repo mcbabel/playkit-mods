@@ -1,0 +1,67 @@
+// 1_menus-06
+// Bug: the customization catalog (owned items only) builds each tab's cards once and never rebuilds them, so items bought or unlocked later in the menu session do not appear until the menu reloads.
+// Fix: every successful inventory load marks the cached cards dirty (non-store catalogs only); the next Populate List drops all cached cards (and their hover tooltips) so the tab is rebuilt from the new inventory; a currently shown empty item grid (first fill before the inventory arrived) is refilled at once.
+
+var PM_CardsDirty: bool;
+var PM_HasPopulated: bool;
+
+function PM_DropCards(Cards: const ref array<object<UI_StoreItem_C>>) {
+    local PM_I: int;
+    local PM_Card: object<UI_StoreItem_C>;
+    PM_I = 0;
+lp:
+    if !Less_IntInt(PM_I, Default__KismetArrayLibrary.Array_Length(Cards)) goto fin;
+    Default__KismetArrayLibrary.Array_Get(Cards, PM_I, PM_Card);
+    if !KismetSystemLibrary::IsValid(PM_Card) goto nx;
+    if !KismetSystemLibrary::IsValid(PM_Card.`Store Tooltip`) goto rmcard;
+    PM_Card.`Store Tooltip`.RemoveFromParent();
+rmcard:
+    PM_Card.RemoveFromParent();
+nx:
+    PM_I = Add_IntInt(PM_I, 1);
+    goto lp;
+fin:
+}
+
+before `Populate List` {
+    PM_HasPopulated = true;
+    if !PM_CardsDirty goto done;
+    PM_CardsDirty = false;
+    PM_DropCards(BoxyCards);
+    PM_DropCards(HuggyCards);
+    PM_DropCards(MommyCards);
+    PM_DropCards(LeftHandCards);
+    PM_DropCards(RightHandCards);
+    PM_DropCards(GrabPackCards);
+    PM_DropCards(SkinCards);
+    PM_DropCards(HatCards);
+    PM_DropCards(MaskCards);
+    PM_DropCards(ShirtCards);
+    PM_DropCards(PantsCards);
+    PM_DropCards(ShoesCards);
+    PM_DropCards(OutfitCards);
+    PM_DropCards(SpecialistEmoteCards);
+    PM_DropCards(BoxyEmoteCards);
+    PM_DropCards(HuggyEmoteCards);
+    PM_DropCards(MommyEmoteCards);
+    PM_DropCards(LoadingScreenCards);
+    PM_DropCards(PuzzleSoundCards);
+    PM_DropCards(SpecialistSoundCards);
+    PM_DropCards(LobbySoundCards);
+    PM_DropCards(AmbientSoundCards);
+    PM_DropCards(MonsterSoundCards);
+    ClearAllInventory();
+done:
+}
+
+after SuccessfulInventoryGet {
+    local PM_Children: array<object<Widget>>;
+    if !Not_PreBool(StoreCatalog) goto done;
+    PM_CardsDirty = true;
+    if !PM_HasPopulated goto done;
+    if !NotEqual_ObjectObject(ContentSwitcher.GetActiveWidget(), PresetGrid) goto done;
+    PM_Children = `Get Current Grid Children`();
+    if !EqualEqual_IntInt(Default__KismetArrayLibrary.Array_Length(PM_Children), 0) goto done;
+    `Populate List`(CurrentItemType, CurrentCosmeticType, CurrentCharacterType, CurrentSoundPackType);
+done:
+}

@@ -1,0 +1,11 @@
+// 2_core_lobby_hud-11
+// Bug: CreateCrosshairWidget creates a new UI_SurvivorHUD and overwrites Crosshair without removing the previous one, so a second call (survivor tutorial: GM SetupPlayerHUD plus BP_NetworkCharacter ResetViewTarget) leaves two survivor HUDs alive.
+// Fix: before a new HUD is created, remove the existing Crosshair from its parent (its Destruct also removes its connection info overlay).
+
+before CreateCrosshairWidget {
+    local PM_ChValid: bool;
+    PM_ChValid = KismetSystemLibrary::IsValid(Crosshair);
+    if !PM_ChValid goto done;
+    Crosshair.RemoveFromParent();
+done:
+}

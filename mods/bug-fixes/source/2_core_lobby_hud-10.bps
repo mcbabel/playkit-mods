@@ -1,0 +1,135 @@
+// 2_core_lobby_hud-10
+// Bug: in GetKeyBinds the Space Bar case of the second action writes "SPACE" into Key1 instead of Key2, so the first prompt shows SPACE and the second one is empty.
+// Fix: same function body with the Space Bar case of InputAction2 assigning Key2 (one statement changed).
+
+replace GetKeyBinds {
+    CallFunc_GetInputSettings_ReturnValue_1 = GetInputSettings();
+    CallFunc_GetActionMappingByName_OutMappings_1 = [];
+    CallFunc_GetInputSettings_ReturnValue_1.GetActionMappingByName(InputAction1, CallFunc_GetActionMappingByName_OutMappings_1);
+    CallFunc_Array_LastIndex_ReturnValue = Default__KismetArrayLibrary.Array_LastIndex(CallFunc_GetActionMappingByName_OutMappings_1);
+    Default__KismetArrayLibrary.Array_Get(CallFunc_GetActionMappingByName_OutMappings_1, CallFunc_Array_LastIndex_ReturnValue, CallFunc_Array_Get_Item_1);
+    CallFunc_Key_GetDisplayName_ReturnValue_1 = Key_GetDisplayName(CallFunc_Array_Get_Item_1.Key);
+    CallFunc_Conv_TextToString_ReturnValue = Conv_TextToString(CallFunc_Key_GetDisplayName_ReturnValue_1);
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Right Mouse Button");
+    if !K2Node_SwitchString_CmpSuccess goto L2487;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Left Mouse Button");
+    if !K2Node_SwitchString_CmpSuccess goto L2517;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Middle Mouse Button");
+    if !K2Node_SwitchString_CmpSuccess goto L2547;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Left Shift");
+    if !K2Node_SwitchString_CmpSuccess goto L2577;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Right Shift");
+    if !K2Node_SwitchString_CmpSuccess goto L2577;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Left Ctrl");
+    if !K2Node_SwitchString_CmpSuccess goto L2609;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Right Ctrl");
+    if !K2Node_SwitchString_CmpSuccess goto L2609;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Left Alt");
+    if !K2Node_SwitchString_CmpSuccess goto L2640;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Right Alt");
+    if !K2Node_SwitchString_CmpSuccess goto L2640;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Tab");
+    if !K2Node_SwitchString_CmpSuccess goto L2670;
+    K2Node_SwitchString_CmpSuccess = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue, "Space Bar");
+    if !K2Node_SwitchString_CmpSuccess goto L2700;
+    CallFunc_GetInputSettings_ReturnValue_1 = GetInputSettings();
+    CallFunc_GetActionMappingByName_OutMappings_1 = [];
+    CallFunc_GetInputSettings_ReturnValue_1.GetActionMappingByName(InputAction1, CallFunc_GetActionMappingByName_OutMappings_1);
+    CallFunc_Array_LastIndex_ReturnValue = Default__KismetArrayLibrary.Array_LastIndex(CallFunc_GetActionMappingByName_OutMappings_1);
+    Default__KismetArrayLibrary.Array_Get(CallFunc_GetActionMappingByName_OutMappings_1, CallFunc_Array_LastIndex_ReturnValue, CallFunc_Array_Get_Item_1);
+    CallFunc_Key_GetDisplayName_ReturnValue_1 = Key_GetDisplayName(CallFunc_Array_Get_Item_1.Key);
+    Key1 = CallFunc_Key_GetDisplayName_ReturnValue_1;
+L1172:
+    CallFunc_GetInputSettings_ReturnValue = GetInputSettings();
+    CallFunc_GetActionMappingByName_OutMappings = [];
+    CallFunc_GetInputSettings_ReturnValue.GetActionMappingByName(InputAction2, CallFunc_GetActionMappingByName_OutMappings);
+    CallFunc_Array_Length_ReturnValue = Default__KismetArrayLibrary.Array_Length(CallFunc_GetActionMappingByName_OutMappings);
+    CallFunc_Subtract_IntInt_ReturnValue = Subtract_IntInt(CallFunc_Array_Length_ReturnValue, 1);
+    Default__KismetArrayLibrary.Array_Get(CallFunc_GetActionMappingByName_OutMappings, CallFunc_Subtract_IntInt_ReturnValue, CallFunc_Array_Get_Item);
+    CallFunc_Key_GetDisplayName_ReturnValue = Key_GetDisplayName(CallFunc_Array_Get_Item.Key);
+    CallFunc_Conv_TextToString_ReturnValue_1 = Conv_TextToString(CallFunc_Key_GetDisplayName_ReturnValue);
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Right Mouse Button");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2732;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Left Mouse Button");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2762;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Middle Mouse Button");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2792;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Left Shift");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2822;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Right Shift");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2822;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Left Ctrl");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2854;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Right Ctrl");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2854;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Left Alt");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2885;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Right Alt");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2885;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Tab");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2915;
+    K2Node_SwitchString_CmpSuccess_1 = NotEqual_StriStri(CallFunc_Conv_TextToString_ReturnValue_1, "Space Bar");
+    if !K2Node_SwitchString_CmpSuccess_1 goto L2945;
+    CallFunc_GetInputSettings_ReturnValue = GetInputSettings();
+    CallFunc_GetActionMappingByName_OutMappings = [];
+    CallFunc_GetInputSettings_ReturnValue.GetActionMappingByName(InputAction2, CallFunc_GetActionMappingByName_OutMappings);
+    CallFunc_Array_Length_ReturnValue = Default__KismetArrayLibrary.Array_Length(CallFunc_GetActionMappingByName_OutMappings);
+    CallFunc_Subtract_IntInt_ReturnValue = Subtract_IntInt(CallFunc_Array_Length_ReturnValue, 1);
+    Default__KismetArrayLibrary.Array_Get(CallFunc_GetActionMappingByName_OutMappings, CallFunc_Subtract_IntInt_ReturnValue, CallFunc_Array_Get_Item);
+    CallFunc_Key_GetDisplayName_ReturnValue = Key_GetDisplayName(CallFunc_Array_Get_Item.Key);
+    Key2 = CallFunc_Key_GetDisplayName_ReturnValue;
+L2428:
+    AbilityKey1 = Key1;
+    AbilityKey2 = Key2;
+    goto L2977;
+L2487:
+    Key1 = invtext("RMB");
+    goto L1172;
+L2517:
+    Key1 = invtext("LMB");
+    goto L1172;
+L2547:
+    Key1 = invtext("MMB");
+    goto L1172;
+L2577:
+    Key1 = invtext("SHIFT");
+    goto L1172;
+L2609:
+    Key1 = invtext("CTRL");
+    goto L1172;
+L2640:
+    Key1 = invtext("ALT");
+    goto L1172;
+L2670:
+    Key1 = invtext("TAB");
+    goto L1172;
+L2700:
+    Key1 = invtext("SPACE");
+    goto L1172;
+L2732:
+    Key2 = invtext("RMB");
+    goto L2428;
+L2762:
+    Key2 = invtext("LMB");
+    goto L2428;
+L2792:
+    Key2 = invtext("MMB");
+    goto L2428;
+L2822:
+    Key2 = invtext("SHIFT");
+    goto L2428;
+L2854:
+    Key2 = invtext("CTRL");
+    goto L2428;
+L2885:
+    Key2 = invtext("ALT");
+    goto L2428;
+L2915:
+    Key2 = invtext("TAB");
+    goto L2428;
+L2945:
+    Key2 = invtext("SPACE");
+    goto L2428;
+L2977:
+    return;
+}

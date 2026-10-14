@@ -1,0 +1,7 @@
+// 1_menus-03
+// Bug: the Clear button on the monster Sabotages page only empties the slot display. The game cannot store "no sabotage" (the native save only knows the 8 sabotages and ignores any other name), so the old sabotage stays active.
+// Fix: hide the Clear button, so the page always shows the sabotage the monster really has.
+
+after PreConstruct {
+    UI_ClearPerk.SetVisibility(1u8);
+}

@@ -1,0 +1,47 @@
+// 3_players_monsters-08
+// Bug: GetMatchingPlayerState, `Auth Get Matching Controller` and OnRep_Strikes identify the player by display name, so two players with the same Steam name get each other's strikes HUD, and on death the host can possess the SpectatePawn with the wrong controller.
+// Fix: prefer the object references that exist: the pawn's own PlayerState (GetMatchingPlayerState, OnRep_Strikes) and, on the server, the pawn's controller or ControllerRef (Auth Get Matching Controller); the old name search stays as fallback when those are not set (for example while the player sits in a wuggy hole).
+
+before GetMatchingPlayerState {
+    if !KismetSystemLibrary::IsValid(Pawn::PlayerState) goto done;
+    PlayerState = Pawn::PlayerState;
+    return;
+done:
+}
+
+before `Auth Get Matching Controller` {
+    local PM_MatchPC: object<BP_MultiplayerPlayerController_C>;
+    if !HasAuthority() goto done;
+    PM_MatchPC = cast<BP_MultiplayerPlayerController_C>(GetController());
+    if !KismetSystemLibrary::IsValid(PM_MatchPC) goto byref;
+    PlayerController = PM_MatchPC;
+    return;
+byref:
+    PM_MatchPC = cast<BP_MultiplayerPlayerController_C>(ControllerRef);
+    if !KismetSystemLibrary::IsValid(PM_MatchPC) goto done;
+    PlayerController = PM_MatchPC;
+    return;
+done:
+}
+
+before OnRep_Strikes {
+    local PM_StrikePC: object<BP_MultiplayerPlayerController_C>;
+    local PM_StrikePS: object<BP_MultiplayerPlayerState_C>;
+    local PM_StrikeItem: object<UI_PlayerStatusItem_C>;
+    if !KismetSystemLibrary::IsValid(Pawn::PlayerState) goto done;
+    Default__PlaytimeFunctionLibrary_C.GetMultiplayerController(self, PM_StrikePC);
+    if !KismetSystemLibrary::IsValid(PM_StrikePC) goto done;
+    if !KismetSystemLibrary::IsValid(PM_StrikePC.Crosshair) goto leave;
+    if !EqualEqual_ObjectObject(Pawn::PlayerState, PM_StrikePC.Controller::PlayerState) goto other;
+    PM_StrikePC.Crosshair.localvirtual ShowStrikes(Strikes);
+    PM_StrikePC.Crosshair.UI_ControlledPlayerStatus.BeginRadialTick();
+    return;
+other:
+    PM_StrikePS = cast<BP_MultiplayerPlayerState_C>(Pawn::PlayerState);
+    if !KismetSystemLibrary::IsValid(PM_StrikePS) goto leave;
+    PM_StrikePC.Crosshair.UI_PlayerStatus.GetPlayersStatus(PM_StrikePS, PM_StrikeItem);
+    PM_StrikeItem.BeginRadialTick();
+leave:
+    return;
+done:
+}

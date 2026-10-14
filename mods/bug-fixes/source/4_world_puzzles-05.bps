@@ -1,0 +1,10 @@
+// 4_world_puzzles-05
+// Bug: the call panel outline (Highlight, stencil 20) is only applied through BP_ToyMachine.OnPipeConnected, which fires reliably only on the server, so clients usually never see the train call panels outlined.
+// Fix: on clients ToggleActive (OnRep_Active, runs when the train activates its call buttons) also calls Highlight when Active is true; the host keeps its original behaviour.
+
+after ToggleActive {
+    if !Active goto done;
+    if !Not_PreBool(HasAuthority()) goto done;
+    Highlight();
+done:
+}

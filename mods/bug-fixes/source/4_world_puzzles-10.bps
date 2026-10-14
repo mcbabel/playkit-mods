@@ -1,0 +1,11 @@
+// 4_world_puzzles-10
+// Bug: SetCharacter (character switch arrows in UI_MatchMakingScreen) calls LoadCosmetics at L2265 and never uses the result, so every switch loads the cosmetics save game synchronously one extra time before RefreshVisuals loads it again.
+// Fix: SetCharacter sets MatchCharacter exactly like before and then enters the ubergraph at L2151, the code right after the unused LoadCosmetics (local menu only).
+
+replace SetCharacter {
+    local PM_GI: object<MultiplayerGameInstance_C>;
+    K2Node_CustomEvent_CharacterType = CharacterType;
+    PM_GI = Default__PlaytimeFunctionLibrary_C.GetMultiplayerGameInstance(self);
+    PM_GI.MatchCharacter = CharacterType;
+    ExecuteUbergraph_BP_MonsterContainer(2151);
+}

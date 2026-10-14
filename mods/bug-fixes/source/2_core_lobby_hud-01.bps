@@ -1,0 +1,50 @@
+// 2_core_lobby_hud-01
+// Bug: the monster styling of the player list (no survivor EKG, monster background, shifted name) is applied once in PreConstruct, but UI_PlayerStatus rebuilds all items with survivor styling every time GS_Escape.OnUpdatedPlayers fires (player joins or leaves).
+// Fix: the monster HUD also listens to GS_Escape.OnUpdatedPlayers and re-applies the same styling (same calls as the PreConstruct loop) shortly after each rebuild, independent of the delegate order.
+
+var PM_StyleGS: object<GS_Escape_C>;
+
+// Same styling as the PreConstruct loop over UI_PlayerStatus.VerticalBox_82.
+function PM_ApplyMonsterStyle() {
+    local PM_Children: array<object<Widget>>;
+    local PM_I: int;
+    local PM_Item: object<UI_PlayerStatusItem_C>;
+    local PM_Ok: bool;
+    local PM_Xf: struct<WidgetTransform>;
+    PM_Xf.Translation = Vector2D{2.0, 9.0};
+    PM_Xf.Scale = Vector2D{1.0, 1.0};
+    PM_Xf.Shear = Vector2D{0.0, 0.0};
+    PM_Xf.Angle = 0.0;
+    PM_Children = UI_GameIndicatorComponent.UI_PlayerStatus.VerticalBox_82.GetAllChildren();
+    PM_I = 0;
+sloop:
+    if !Less_IntInt(PM_I, Default__KismetArrayLibrary.Array_Length(PM_Children)) goto finish;
+    PM_Item = cast<UI_PlayerStatusItem_C>(PM_Children[PM_I]);
+    PM_Ok = KismetSystemLibrary::IsValid(PM_Item);
+    if !PM_Ok goto snext;
+    PM_Item.EKG.SetVisibility(1u8);
+    PM_Item.NameTextBox.SetRenderTransform(PM_Xf);
+    PM_Item.StatusBackground.SetBrushFromTexture(T_PlayerStatusBackgroundMonster, true);
+snext:
+    PM_I = Add_IntInt(PM_I, 1);
+    goto sloop;
+finish:
+}
+
+// Bound to GS_Escape.OnUpdatedPlayers; UI_PlayerStatus rebuilds its items in the same broadcast, so style them a moment later.
+function PM_OnPlayersUpdated() {
+    local PM_T: struct<TimerHandle>;
+    PM_T = K2_SetTimer(self, "PM_ApplyMonsterStyle", 0.01, false, 0.0, 0.0);
+}
+
+after PreConstruct {
+    local PM_Del: delegate<GS_Escape_C::OnUpdatedPlayers__DelegateSignature>;
+    local PM_GsOk: bool;
+    if !Not_PreBool(IsDesignTime) goto finish;
+    PM_StyleGS = cast<GS_Escape_C>(GetGameState(self));
+    PM_GsOk = KismetSystemLibrary::IsValid(PM_StyleGS);
+    if !PM_GsOk goto finish;
+    bind(PM_Del, self, PM_OnPlayersUpdated);
+    PM_StyleGS.OnUpdatedPlayers += PM_Del;
+finish:
+}

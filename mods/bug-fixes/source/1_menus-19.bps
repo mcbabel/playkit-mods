@@ -1,0 +1,43 @@
+// 1_menus-19
+// Bug: the new-preset name check uses a substring match (saving "Test" is refused while "Testpreset" exists) and reads a save game reference that is only loaded once the Presets tab was opened, so before that an existing preset with the same name is silently overwritten.
+// Fix: PresetNameSimilar compares whole names (case-insensitive, spaces ignored on both sides), and Submit loads the customization save first when it is not loaded yet.
+
+replace PresetNameSimilar {
+    push L612;
+    Return = true;
+    Temp_int_Loop_Counter_Variable = 0;
+    Temp_int_Array_Index_Variable = 0;
+L62:
+    CallFunc_NameArrayToStringArray_Out = [];
+    NameArrayToStringArray(TargetArray, CallFunc_NameArrayToStringArray_Out);
+    CallFunc_Array_Length_ReturnValue = Default__KismetArrayLibrary.Array_Length(CallFunc_NameArrayToStringArray_Out);
+    CallFunc_Less_IntInt_ReturnValue = Less_IntInt(Temp_int_Loop_Counter_Variable, CallFunc_Array_Length_ReturnValue);
+    if !CallFunc_Less_IntInt_ReturnValue goto L485;
+    Temp_int_Array_Index_Variable = Temp_int_Loop_Counter_Variable;
+    push L538;
+    CallFunc_Conv_NameToString_ReturnValue = Conv_NameToString(ItemToFind);
+    CallFunc_NameArrayToStringArray_Out = [];
+    NameArrayToStringArray(TargetArray, CallFunc_NameArrayToStringArray_Out);
+    CallFunc_Replace_ReturnValue = Replace(CallFunc_Conv_NameToString_ReturnValue, " ", "", 1u8);
+    Default__KismetArrayLibrary.Array_Get(CallFunc_NameArrayToStringArray_Out, Temp_int_Array_Index_Variable, CallFunc_Array_Get_Item);
+    CallFunc_Contains_ReturnValue = EqualEqual_StriStri(Replace(CallFunc_Array_Get_Item, " ", "", 1u8), CallFunc_Replace_ReturnValue);
+    pop if !CallFunc_Contains_ReturnValue;
+    Return = false;
+    pop;
+L485:
+    CallFunc_Not_PreBool_ReturnValue = Not_PreBool(Return);
+    ReturnValue = CallFunc_Not_PreBool_ReturnValue;
+    goto L612;
+L538:
+    CallFunc_Add_IntInt_ReturnValue = Add_IntInt(Temp_int_Loop_Counter_Variable, 1);
+    Temp_int_Loop_Counter_Variable = CallFunc_Add_IntInt_ReturnValue;
+    goto L62;
+L612:
+    return ReturnValue;
+}
+
+before BndEvt__UI_CosmeticCatalog_UI_NewPresetModal_K2Node_ComponentBoundEvent_7_SubmitNewPreset__DelegateSignature {
+    if !Not_PreBool(KismetSystemLibrary::IsValid(`Customization Save Game`)) goto done;
+    `Customization Save Game` = LoadCosmetics();
+done:
+}

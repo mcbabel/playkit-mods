@@ -1,0 +1,15 @@
+// 2_core_lobby_hud-04
+// Bug: CreateMissionResultScreenWidget checks and stores a local variable, so OnRep_MatchEnded and DisplayMissionResults each create their own result screen and the hidden one ends the match (RequestLeaveLobby) about a second before the visible countdown reaches 0.
+// Fix: CreateMissionResultScreenWidget starts from the GameState member MissionResultScreenWidget (so an existing screen is reused and refreshed), and OnRep_MatchEnded stores the screen it gets in that member.
+
+before CreateMissionResultScreenWidget {
+    MissionResultScreen = MissionResultScreenWidget;
+}
+
+after OnRep_MatchEnded {
+    local PM_RsValid: bool;
+    PM_RsValid = KismetSystemLibrary::IsValid(CallFunc_CreateMissionResultScreenWidget_ReturnValue);
+    if !PM_RsValid goto done;
+    MissionResultScreenWidget = CallFunc_CreateMissionResultScreenWidget_ReturnValue;
+done:
+}

@@ -1,0 +1,10 @@
+// 4_world_puzzles-09
+// Bug: BeginPlay starts a looping 2 s timer that calls the reliable multicast UpdatePlayersIndicator for the whole match and never clears it, also after the pillar is solved.
+// Fix: on the server, the first UpdatePlayersIndicator call after Solved? is true clears that timer by function name; this last call still runs and removes the nav indicator on every machine as before.
+
+before UpdatePlayersIndicator {
+    if !HasAuthority() goto done;
+    if !`Solved?` goto done;
+    K2_ClearTimer(self, "UpdatePlayersIndicator");
+done:
+}

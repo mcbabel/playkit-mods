@@ -1,0 +1,27 @@
+// 1_menus-15
+// Bug: the intro cinematic reads the media duration 0.2 s after the asynchronous OpenFile; if the movie is not open yet (or fails to open) the duration is 0, no end timer is set and the player waits on the cinematic until Skip.
+// Fix: also bind the MediaPlayer's OnEndReached and OnMediaOpenFailed events to Finished in Construct, and let Finished run only once so the timer, the end event and Skip cannot start the fade and level load twice.
+
+var PM_CineDone: bool;
+
+event PM_CineOpenFailed(FailedUrl: string) {
+    Finished();
+}
+
+after Construct {
+    local PM_EndDel: delegate<OnMediaPlayerMediaEvent__DelegateSignature>;
+    local PM_FailDel: delegate<OnMediaPlayerMediaOpenFailed__DelegateSignature>;
+    if !KismetSystemLibrary::IsValid(MediaPlayer) goto done;
+    bind(PM_EndDel, self, Finished);
+    MediaPlayer.OnEndReached += PM_EndDel;
+    bind(PM_FailDel, self, PM_CineOpenFailed);
+    MediaPlayer.OnMediaOpenFailed += PM_FailDel;
+done:
+}
+
+before Finished {
+    if !PM_CineDone goto first;
+    return;
+first:
+    PM_CineDone = true;
+}

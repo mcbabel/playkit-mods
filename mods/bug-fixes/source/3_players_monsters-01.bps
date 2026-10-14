@@ -1,0 +1,18 @@
+// 3_players_monsters-01
+// Bug: Func_extractedFromWuggyHole and Func_imprisonedInWuggyHole only fire EventExtractedFromWuggyHole / Event Fix Grabpack + EventImprisonedInWuggyHole when the server's own pawn is a Monster, because those calls hang off the success pin of the monster HUD cast.
+// Fix: after each function, when the cast failed and we are the server, fire the same existing events (no new RPCs); the monster-host path is unchanged.
+
+after Func_extractedFromWuggyHole {
+    if !Not_PreBool(K2Node_DynamicCast_bSuccess) goto done;
+    if !HasAuthority() goto done;
+    EventExtractedFromWuggyHole();
+done:
+}
+
+after Func_imprisonedInWuggyHole {
+    if !Not_PreBool(K2Node_DynamicCast_bSuccess) goto done;
+    if !HasAuthority() goto done;
+    `Event Fix Grabpack`();
+    EventImprisonedInWuggyHole();
+done:
+}

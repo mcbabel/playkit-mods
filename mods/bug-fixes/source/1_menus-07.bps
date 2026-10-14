@@ -1,0 +1,8 @@
+// 1_menus-07
+// Bug: when buying the Toy Box fails on the backend, ToyboxFail only shows the error, so the loading overlay stays up and the still running timeout later adds a misleading "Purchase timeout" message.
+// Fix: after ToyboxFail, clear the timeout timer and hide the loading overlay, like the timeout and the unused BackendFailure handler do.
+
+after ToyboxFail ubergraph {
+    K2_ClearAndInvalidateTimerHandle(self, TimeoutHandler);
+    loadingscreen.SetVisibility(2u8);
+}

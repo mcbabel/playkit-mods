@@ -1,0 +1,7 @@
+// 2_core_lobby_hud-02
+// Bug: NoSabotageDuration is set to true for a Boobytrap or Shutdown sabotage and never reset, so every later timed sabotage on the same HUD shows "?" and its icon never times out.
+// Fix: reset NoSabotageDuration to false at the start of InitializeSabotageIcons; the Boobytrap/Shutdown branch still sets it to true for those sabotages.
+
+before InitializeSabotageIcons {
+    NoSabotageDuration = false;
+}

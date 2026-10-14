@@ -1,0 +1,15 @@
+// 4_world_puzzles-04
+// Bug: when a hand cosmetic has no mesh (default hands, id -1/0), LoadAsset returns none, the SkeletalMesh cast at L15869 fails and the event pops, so the claw grabber keeps the previous player's hand mesh and scale.
+// Fix: both LoadAsset callbacks replace a loaded object that is not a SkeletalMesh with SK_LeftHand (the mesh the existing select already uses for default hands), so the update always runs.
+
+before OnLoaded_65F522044C76489A1A799F9F16EAF492 {
+    if !Not_PreBool(KismetSystemLibrary::IsValid(cast<SkeletalMesh>(Loaded))) goto done;
+    Loaded = SK_LeftHand;
+done:
+}
+
+before OnLoaded_9D85731D4D942173C9F08F8F58F5FB43 {
+    if !Not_PreBool(KismetSystemLibrary::IsValid(cast<SkeletalMesh>(Loaded))) goto done;
+    Loaded = SK_LeftHand;
+done:
+}

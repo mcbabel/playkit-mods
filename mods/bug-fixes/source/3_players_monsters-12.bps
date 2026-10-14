@@ -1,0 +1,88 @@
+// 3_players_monsters-12
+// Bug: `Move Player` (called by both the MoveForward and the MoveRight axis events every frame) sorts all nav indicator groups and adjusts their opacity on every call, so this Blueprint work runs twice per frame.
+// Fix: the same function body, but the nav indicator block (old L865) runs at most once per game time stamp (new non-replicated class variable PM_NavSortTime); movement input is unchanged.
+
+var PM_NavSortTime: float;
+
+replace `Move Player` {
+    local PM_NavNow: float;
+    push L2269;
+    CallFunc_BooleanNOR_ReturnValue = BooleanNOR(InCosmeticsMenu, `Is Jumpscare Active`);
+    pop if !CallFunc_BooleanNOR_ReturnValue;
+    CallFunc_GetVelocity_ReturnValue = GetVelocity();
+    BreakVector(CallFunc_GetVelocity_ReturnValue, CallFunc_BreakVector_X, CallFunc_BreakVector_Y, CallFunc_BreakVector_Z);
+    CallFunc_Abs_ReturnValue = Abs(CallFunc_BreakVector_Y);
+    CallFunc_Abs_ReturnValue_1 = Abs(CallFunc_BreakVector_X);
+    CallFunc_Greater_FloatFloat_ReturnValue = Greater_FloatFloat(CallFunc_Abs_ReturnValue, 1.0);
+    CallFunc_Greater_FloatFloat_ReturnValue_1 = Greater_FloatFloat(CallFunc_Abs_ReturnValue_1, 1.0);
+    CallFunc_BooleanOR_ReturnValue = BooleanOR(CallFunc_Greater_FloatFloat_ReturnValue_1, CallFunc_Greater_FloatFloat_ReturnValue);
+    CallFunc_BooleanAND_ReturnValue = BooleanAND(IsThirdPerson, CallFunc_BooleanOR_ReturnValue);
+    if !CallFunc_BooleanAND_ReturnValue goto L718;
+    CallFunc_GetWorldDeltaSeconds_ReturnValue = GetWorldDeltaSeconds(self);
+    CallFunc_GetPlaytimeMovementComponent_ReturnValue = GetPlaytimeMovementComponent();
+    GetTargetArmLength(TP_DistanceArm.TargetArmLength, CallFunc_GetWorldDeltaSeconds_ReturnValue, CallFunc_GetPlaytimeMovementComponent_ReturnValue.WantsToRun, CallFunc_GetTargetArmLength_Length, CallFunc_GetTargetArmLength_ShouldUpdate);
+    pop if !CallFunc_GetTargetArmLength_ShouldUpdate;
+    CallFunc_GetWorldDeltaSeconds_ReturnValue = GetWorldDeltaSeconds(self);
+    CallFunc_GetPlaytimeMovementComponent_ReturnValue = GetPlaytimeMovementComponent();
+    GetTargetArmLength(TP_DistanceArm.TargetArmLength, CallFunc_GetWorldDeltaSeconds_ReturnValue, CallFunc_GetPlaytimeMovementComponent_ReturnValue.WantsToRun, CallFunc_GetTargetArmLength_Length, CallFunc_GetTargetArmLength_ShouldUpdate);
+    TP_DistanceArm.TargetArmLength = CallFunc_GetTargetArmLength_Length;
+L718:
+    CallFunc_GetPlaytimeMovementComponent_ReturnValue_1 = GetPlaytimeMovementComponent();
+    CallFunc_IsRolling_ReturnValue = CallFunc_GetPlaytimeMovementComponent_ReturnValue_1.IsRolling();
+    if !CallFunc_IsRolling_ReturnValue goto L2083;
+    CallFunc_GetPlaytimeMovementComponent_ReturnValue_1 = GetPlaytimeMovementComponent();
+    AddMovementInput(CallFunc_GetPlaytimeMovementComponent_ReturnValue_1.RollDirection, 1.0, false);
+L865:
+    PM_NavNow = GameplayStatics::GetTimeSeconds(self);
+    if !NotEqual_FloatFloat(PM_NavNow, PM_NavSortTime) goto L2269;
+    PM_NavSortTime = PM_NavNow;
+    CallFunc_Map_Keys_Keys = [];
+    Default__BlueprintMapLibrary.Map_Keys(BPC_NavSystem.NavElementMap, CallFunc_Map_Keys_Keys);
+    Temp_int_Loop_Counter_Variable = 0;
+    Temp_int_Array_Index_Variable = 0;
+L994:
+    CallFunc_Array_Length_ReturnValue = Default__KismetArrayLibrary.Array_Length(CallFunc_Map_Keys_Keys);
+    CallFunc_Less_IntInt_ReturnValue = Less_IntInt(Temp_int_Loop_Counter_Variable, CallFunc_Array_Length_ReturnValue);
+    pop if !CallFunc_Less_IntInt_ReturnValue;
+    Temp_int_Array_Index_Variable = Temp_int_Loop_Counter_Variable;
+    push L2121;
+    Default__KismetArrayLibrary.Array_Get(CallFunc_Map_Keys_Keys, Temp_int_Array_Index_Variable, CallFunc_Array_Get_Item);
+    CallFunc_Map_Find_ReturnValue = Default__BlueprintMapLibrary.Map_Find(BPC_NavSystem.NavElementMap, CallFunc_Array_Get_Item, CallFunc_Map_Find_Value);
+    CallFunc_SortArray_ReturnValue = NavigatorIndicatorSorter.SortArray(CallFunc_Map_Find_Value.Array_10_E8CAEAAA4D6BA4778B05BE81B5CB5947);
+    Temp_int_Loop_Counter_Variable_1 = 0;
+    Temp_int_Array_Index_Variable_1 = 0;
+L1397:
+    CallFunc_Array_Length_ReturnValue_1 = Default__KismetArrayLibrary.Array_Length(CallFunc_SortArray_ReturnValue);
+    CallFunc_Less_IntInt_ReturnValue_1 = Less_IntInt(Temp_int_Loop_Counter_Variable_1, CallFunc_Array_Length_ReturnValue_1);
+    pop if !CallFunc_Less_IntInt_ReturnValue_1;
+    Temp_int_Array_Index_Variable_1 = Temp_int_Loop_Counter_Variable_1;
+    push L2195;
+    Default__KismetArrayLibrary.Array_Get(CallFunc_SortArray_ReturnValue, Temp_int_Array_Index_Variable_1, CallFunc_Array_Get_Item_1);
+    K2Node_DynamicCast_AsBPC_Nav_Element = cast<BPC_NavElement_C>(CallFunc_Array_Get_Item_1);
+    K2Node_DynamicCast_bSuccess = primcast<ObjectToBool>(K2Node_DynamicCast_AsBPC_Nav_Element);
+    pop if !K2Node_DynamicCast_bSuccess;
+    Default__KismetArrayLibrary.Array_Get(CallFunc_SortArray_ReturnValue, 0, CallFunc_Array_Get_Item_2);
+    K2Node_DynamicCast_AsBPC_Nav_Element_1 = cast<BPC_NavElement_C>(CallFunc_Array_Get_Item_2);
+    K2Node_DynamicCast_bSuccess_1 = primcast<ObjectToBool>(K2Node_DynamicCast_AsBPC_Nav_Element_1);
+    pop if !K2Node_DynamicCast_bSuccess_1;
+    CallFunc_K2_GetActorLocation_ReturnValue = K2_GetActorLocation();
+    CallFunc_GetOwnerIndicatorLoc_ReturnValue = K2Node_DynamicCast_AsBPC_Nav_Element.GetOwnerIndicatorLoc();
+    CallFunc_Vector_DistanceSquared_ReturnValue = Vector_DistanceSquared(CallFunc_GetOwnerIndicatorLoc_ReturnValue, CallFunc_K2_GetActorLocation_ReturnValue);
+    CallFunc_GetOwnerIndicatorLoc_ReturnValue_1 = K2Node_DynamicCast_AsBPC_Nav_Element_1.GetOwnerIndicatorLoc();
+    CallFunc_Vector_DistanceSquared_ReturnValue_1 = Vector_DistanceSquared(CallFunc_GetOwnerIndicatorLoc_ReturnValue_1, CallFunc_K2_GetActorLocation_ReturnValue);
+    K2Node_DynamicCast_AsBPC_Nav_Element.`Adjust Opacity`(CallFunc_Vector_DistanceSquared_ReturnValue, CallFunc_Vector_DistanceSquared_ReturnValue_1);
+    pop;
+L2083:
+    AddMovementInput(WorldDirection, ScaleValue, false);
+    goto L865;
+L2121:
+    CallFunc_Add_IntInt_ReturnValue = Add_IntInt(Temp_int_Loop_Counter_Variable, 1);
+    Temp_int_Loop_Counter_Variable = CallFunc_Add_IntInt_ReturnValue;
+    goto L994;
+L2195:
+    CallFunc_Add_IntInt_ReturnValue_1 = Add_IntInt(Temp_int_Loop_Counter_Variable_1, 1);
+    Temp_int_Loop_Counter_Variable_1 = CallFunc_Add_IntInt_ReturnValue_1;
+    goto L1397;
+L2269:
+    return;
+}

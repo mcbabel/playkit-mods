@@ -1,0 +1,45 @@
+// 4_world_puzzles-11
+// Bug: Play Emote starts its end timer with Delay, and a Delay that is still pending ignores new calls, so re-triggering an emote (dance, jumping jacks, T-pose, sit) before the previous one ended ends the new emote early when the first timer runs out.
+// Fix: Play Emote runs a copy of the same emote switch that uses RetriggerableDelay with the same durations, so a re-trigger restarts the countdown (local animation flags only). The gesture part of the finding (Force Stop Gesture set true and false in one call) is not changed, see the report.
+
+event PM_PlayEmote() {
+    if !EqualEqual_IntInt(K2Node_CustomEvent_Table_Index, 331) goto t332;
+    `Is Standing Up` = false;
+    `Is Sitting` = true;
+    RetriggerableDelay(self, 0.5, LatentActionInfo{@pm_sit_end, 1771300331, n"ExecuteUbergraph_ABP_NetworkPlayer", self});
+    return;
+t332:
+    if !EqualEqual_IntInt(K2Node_CustomEvent_Table_Index, 332) goto t641;
+    `Is T-Posing` = true;
+    RetriggerableDelay(self, 4.0, LatentActionInfo{@pm_tpose_end, 1771300332, n"ExecuteUbergraph_ABP_NetworkPlayer", self});
+    return;
+t641:
+    if !EqualEqual_IntInt(K2Node_CustomEvent_Table_Index, 641) goto t642;
+    `Is Jumping Jacks Active` = true;
+    RetriggerableDelay(self, 6.0, LatentActionInfo{@pm_jacks_end, 1771300641, n"ExecuteUbergraph_ABP_NetworkPlayer", self});
+    return;
+t642:
+    if !EqualEqual_IntInt(K2Node_CustomEvent_Table_Index, 642) goto none_;
+    `Is Dance Active` = true;
+    RetriggerableDelay(self, 6.5, LatentActionInfo{@pm_dance_end, 1771300642, n"ExecuteUbergraph_ABP_NetworkPlayer", self});
+    return;
+none_:
+    return;
+pm_sit_end:
+    `Is Sitting` = false;
+    return;
+pm_tpose_end:
+    `Is T-Posing` = false;
+    return;
+pm_jacks_end:
+    `Is Jumping Jacks Active` = false;
+    return;
+pm_dance_end:
+    `Is Dance Active` = false;
+    return;
+}
+
+replace `Play Emote` {
+    K2Node_CustomEvent_Table_Index = `Table Index`;
+    PM_PlayEmote();
+}

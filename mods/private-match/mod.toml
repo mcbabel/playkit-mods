@@ -1,6 +1,6 @@
 id = "private-match"
 name = "Private Match"
-version = "1.1.0"
+version = "1.2.0"
 authors = ["MCbabel"]
 summary = "Lobbies only your friends can join: pick a side, create a match, then invite friends or share the four-digit code."
 description = """
@@ -8,11 +8,16 @@ Main menu > PRIVATE MATCH > choose Monster or Specialist > CREATE MATCH.
 Invite friends with the + button above the menu icons. It opens your Steam friends list.
 When a friend accepts, their game opens Private Match and joins your lobby, even if it was closed.
 Friends can also join with the key button (LOBBY CODE). The host starts the round with two or more players.
+Fast double clicks cannot create, join or start a lobby twice, and after a kick or a lost connection you really leave the old lobby.
 Everyone in the lobby needs this mod."""
 category = "multiplayer"
 network = "lobby"
 game_builds = ["12576441"]
 color = "#3A6BFF"
+
+[[changelog]]
+version = "1.2.0"
+changes = ["Includes the Double-Click Guard and Phantom Lobby Fix mods, which are no longer separate. Uninstall them before updating", "The Back button can be pressed again after 0.2 s instead of 0.6 s"]
 
 [[changelog]]
 version = "1.1.0"

@@ -1,0 +1,23 @@
+// 3_players_monsters-11
+// Bug: `Reviver Is Local` loops over all hands on the ExtractionMagnet but never breaks, so the last attached hand decides; with two revivers the local one can get no Start/Success/Cancel revive tooltip and CachedReviver points to the other player.
+// Fix: after the function, if the result is false, look for any attached hand whose owning character is locally controlled; if one exists, return true and cache that character (local tooltip logic only).
+
+after `Reviver Is Local` {
+    local PM_RevIdx: int;
+    local PM_RevItem: struct<HandTimer>;
+    local PM_RevChar: object<BP_NetworkCharacter_C>;
+    if !Not_PreBool(ReturnValue) goto done;
+    PM_RevIdx = 0;
+next:
+    if !Less_IntInt(PM_RevIdx, Default__KismetArrayLibrary.Array_Length(ExtractionMagnet.AttachedHands)) goto done;
+    Default__KismetArrayLibrary.Array_Get(ExtractionMagnet.AttachedHands, PM_RevIdx, PM_RevItem);
+    PM_RevIdx = Add_IntInt(PM_RevIdx, 1);
+    if !KismetSystemLibrary::IsValid(PM_RevItem.Hand) goto next;
+    PM_RevChar = cast<BP_NetworkCharacter_C>(PM_RevItem.Hand.GetOwningCharacter());
+    if !KismetSystemLibrary::IsValid(PM_RevChar) goto next;
+    if !PM_RevChar.IsLocallyControlled() goto next;
+    CachedReviver = PM_RevChar;
+    LocallyControlled = true;
+    ReturnValue = true;
+done:
+}

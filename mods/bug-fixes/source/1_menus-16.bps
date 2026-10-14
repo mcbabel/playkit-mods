@@ -1,0 +1,13 @@
+// 1_menus-16
+// Bug: the hidden, unused UI_Play screen is still constructed in the main menu and polls GetPenalties every 60 s, so every failed backend call pops an error toast although the screen is never shown.
+// Fix: GetPenaltiesFail only shows the toast while UI_Play is the active page of its parent widget switcher; otherwise it only clears the penalty text like the original handler does after the toast.
+
+before GetPenaltiesFail {
+    local PM_Switcher: object<WidgetSwitcher>;
+    PM_Switcher = cast<WidgetSwitcher>(GetParent());
+    if !KismetSystemLibrary::IsValid(PM_Switcher) goto shown;
+    if !NotEqual_ObjectObject(PM_Switcher.GetActiveWidget(), self) goto shown;
+    TR.SetText(emptytext);
+    return;
+shown:
+}

@@ -1,0 +1,14 @@
+// 2_core_lobby_hud-03
+// Bug: the GameInstance error/notice list is created and added to the viewport only once, so after a level travel or RemoveAllWidgets every later message is added to a list that is no longer on screen.
+// Fix: before AddError adds a message, put the existing ErrorList back into the viewport (z-order 0 as on creation) when it is valid but not in the viewport.
+
+before AddError {
+    local PM_ElValid: bool;
+    local PM_ElInVp: bool;
+    PM_ElValid = KismetSystemLibrary::IsValid(ErrorList);
+    if !PM_ElValid goto done;
+    PM_ElInVp = ErrorList.IsInViewport();
+    if !Not_PreBool(PM_ElInVp) goto done;
+    ErrorList.AddToViewport(0);
+done:
+}
