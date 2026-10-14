@@ -13,12 +13,12 @@
     {
       "id": "bug-fixes",
       "name": "Bug Fixes",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "authors": [
         "MCbabel"
       ],
-      "summary": "Fixes 35 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods.",
-      "description": "Fixes for bugs found by reading the game's own Blueprint code. Each fix only changes what you see and do on your own PC.\nMenus: hidden Clear button on the monster sabotage page (the game cannot save an empty sabotage), new items show up in Customize without a restart, preset names are compared exactly, the shop no longer keeps a stale page, failed Toy Box purchases clear the loading overlay, a Playcoin purchase is completed once, the intro cannot hang, no error toast every minute from a hidden old menu.\nLobby and matches: joining a lobby whose start countdown already runs no longer shows a fresh 30 seconds, notices like Host Left Lobby are visible again after a map change, the loading screen shows the right text, one results screen with one countdown, the monster player list keeps its monster style, the sabotage icon no longer sticks on ?, B no longer changes your queue preference during a match.\nPlayers: pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.\nPuzzles: the Reflex ticking stops on a hit, hand panel bars no longer flash empty when you let go, train call panels get their outline, the claw shows the right hand, Genius perk mistakes are counted correctly.\nWhen you host (the monster in public matches) a few more fixes apply for the whole round.",
+      "summary": "Fixes 36 bugs in the menus, the lobby, matches and puzzles. You can still play public matches with people without mods.",
+      "description": "Fixes for bugs found by reading the game's own Blueprint code. Each fix only changes what you see and do on your own PC.\nMenus: hidden Clear button on the monster sabotage page (the game cannot save an empty sabotage), new items show up in Customize without a restart, preset names are compared exactly, the shop no longer keeps a stale page, failed Toy Box purchases clear the loading overlay, a Playcoin purchase is completed once, the intro cannot hang, no error toast every minute from a hidden old menu.\nLobby and matches: joining a lobby whose start countdown already runs no longer shows a fresh 30 seconds, notices like Host Left Lobby are visible again after a map change, the loading screen shows the right text, one results screen with one countdown, the monster player list keeps its monster style, the sabotage icon no longer sticks on ?, B no longer changes your queue preference during a match.\nPlayers: crouching into a locker no longer leaves the camera at crouch height inside and after leaving, pants and grabpack keep their chosen color, other players' landing sounds match the floor, the Living Nightmare fog clears after death, downed players cannot sprint, hand cosmetics are not rebuilt on every shot.\nPuzzles: the Reflex ticking stops on a hit, hand panel bars no longer flash empty when you let go, train call panels get their outline, the claw shows the right hand, Genius perk mistakes are counted correctly.\nWhen you host (the monster in public matches) a few more fixes apply for the whole round.",
       "category": "fixes",
       "network": "safe",
       "game_builds": [
@@ -27,6 +27,12 @@
       "color": "#4F9D69",
       "homepage": null,
       "changelog": [
+        {
+          "version": "1.0.2",
+          "changes": [
+            "Crouching into a locker no longer leaves the camera at crouch height, inside the locker and after leaving it"
+          ]
+        },
         {
           "version": "1.0.1",
           "changes": [
@@ -381,15 +387,15 @@
         {
           "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uasset.bsdiff",
-          "sha256": "9ed3b917a868d694ad9667fdd64706fa7641a0e7db4bb363efd914cdb527e9ef",
-          "size": 771,
+          "sha256": "a81e8a3ee6307b4a486a73da60175c2700e92a59e65d17eb8bb6bf16d30402ab",
+          "size": 915,
           "base_sha256": "80af0acb967c351d48c85888236fe694d6252c036397082289f1f549349b722b"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/bug-fixes/files/Playtime_Multiplayer/Content/Player/TrainingDummy/CPPChildren/BP_NetworkCharacter.uexp.bsdiff",
-          "sha256": "423b5f2566da109e6f1fab4a62aa3fb396657344246083b50fc61c370add897f",
-          "size": 1584,
+          "sha256": "69ccea1c7f334fac472d004d1217ced1d5f9f77dc4b879f1ac8b5fad91eba00d",
+          "size": 1811,
           "base_sha256": "31630f41c7f392dc431341e4139ed52677f843a435d88df7c5ee562a49f6e863"
         },
         {
