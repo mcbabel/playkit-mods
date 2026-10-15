@@ -711,12 +711,12 @@
     {
       "id": "hud-diagnostics",
       "name": "HUD Diagnostics",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "authors": [
         "MCbabel"
       ],
-      "summary": "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round, and tests a fix for a missing monster HUD.",
-      "description": "A diagnostic for a bug where the monster has no HUD and the specialist has no grabpack after the round starts.\nIt writes short entries to your Steam Rich Presence (key hd): when the intro and the spawn camera start and end, and whether the HUD is shown at that moment.\nTest fix: when you are the monster in a Private Match hosted by someone else, your monster HUD is created as soon as the game knows the monster is yours.\nIt does not change how the game plays otherwise and you can still play public matches with people without mods. Remove it again after the test.",
+      "summary": "Temporary test tool: records when the HUD and the grabpack are hidden and shown again at the start of a round, and tests fixes for a client monster.",
+      "description": "A diagnostic for a bug where the monster has no HUD and the specialist has no grabpack after the round starts.\nIt writes short entries to your Steam Rich Presence (key hd): when the intro and the spawn camera start and end, and whether the HUD is shown at that moment.\nTest fixes when you are the monster in a Private Match hosted by someone else: your monster HUD is created as soon as the game knows the monster is yours, and your selected sabotage is loaded so it can be used.\nIt does not change how the game plays otherwise and you can still play public matches with people without mods. Remove it again after the test.",
       "category": "other",
       "network": "safe",
       "game_builds": [
@@ -725,6 +725,12 @@
       "color": "#7A7F87",
       "homepage": null,
       "changelog": [
+        {
+          "version": "1.2.0",
+          "changes": [
+            "Test fix: the selected sabotage can be used when you are the monster in a Private Match hosted by someone else"
+          ]
+        },
         {
           "version": "1.1.0",
           "changes": [
@@ -771,43 +777,43 @@
         {
           "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uasset.bsdiff",
-          "sha256": "eaa63bafdd2028d7b6ece322e157e03fcc243aa322514cef2b71380fe2fca3df",
-          "size": 485,
+          "sha256": "ee58f66bebbc2fa602a6b687638b29f1af3130b08e956805766d310e7016d3d0",
+          "size": 680,
           "base_sha256": "cabf7cb4b72e73e926086cdd831447885a15073a3cd65a695e4f8fade289eccf"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Boxy/BP_NetworkBoxy.uexp.bsdiff",
-          "sha256": "c6c753837b87f621ab73a7c654e21714f14b5464db98b781f9da7a6c3335ed48",
-          "size": 414,
+          "sha256": "aa85d62f78b5440a4cbd98d4a5a48af256b98f3bc3612eeb7bf37a550baad2a9",
+          "size": 562,
           "base_sha256": "a12644488f56e0908f9d14dd9cc796a71bf2bc06d2facf020d894feaa17db7df"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uasset.bsdiff",
-          "sha256": "353a72a4432ec98f32521b09d75cc1dd3b378f4f53e174f58047d13eec01b418",
-          "size": 944,
+          "sha256": "050ca70f460fc68108503eaca4a82aaeec33ac9305db374c49b511078d4e8084",
+          "size": 1134,
           "base_sha256": "f8f356095e11ca0963b30463f567d1bfb03c7b7b73901f76957f409d5cc8eb22"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Huggy/BP_NetworkHuggy.uexp.bsdiff",
-          "sha256": "e24342b8532a14594fbf25452ded60acb92f30797865e3f1ca00bd35a5413d93",
-          "size": 811,
+          "sha256": "89191cca76ffb72da72ceb93fa47f9117b169de493e1f014d926602600f85855",
+          "size": 927,
           "base_sha256": "4f3d114bf42c1ed3a044ae3b5db2d65665c45d6a7df1e755a411a097ce306854"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uasset.bsdiff",
-          "sha256": "451bc4b5c4fc6e2f8e5fde8d22b6dda173e504d9ce332a4e2ef66d6200b6bdb5",
-          "size": 464,
+          "sha256": "c77099fecba8a6318cf852ffce1a5d5184b6da0d618fd363a6913463c1fca31d",
+          "size": 696,
           "base_sha256": "d3d47eda9b4992845ab663cf55ab1d754f944785786fce8e7ec7ee79b76fef85"
         },
         {
           "path": "Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp",
           "url": "https://raw.githubusercontent.com/mcbabel/playkit-mods/main/mods/hud-diagnostics/files/Playtime_Multiplayer/Content/Player/Mommy/GimbalMommyLongLegs/BP_NetworkMommy.uexp.bsdiff",
-          "sha256": "9988a7eeaf070b4e75a99e163b02dde6085dd28a78a71ae79a364f84a02bede7",
-          "size": 413,
+          "sha256": "a0b7cfd665f5d33eb8beab55bebf105d8b1d443f4f15109ab6074cd9db63eb8d",
+          "size": 549,
           "base_sha256": "d7d9a3e9a7077ea195f0efcf716d0d9e5af59b92287ff71f8a90974858392a35"
         }
       ]
